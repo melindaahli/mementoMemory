@@ -1,0 +1,317 @@
+.App {
+  font-family: "Gaegu", cursive;
+  text-align: center;
+}
+
+.MemoryGame {
+  height: 100%;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #312c3b;
+}
+
+.GameBoard {
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row wrap;
+  padding: 20px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.Tile {
+  width: 80px;
+  flex: 1 1 auto;
+  padding: none;
+  height: 120px;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.shopBTN {
+  border-radius: 5px;
+  margin: 0 5px 0 5px;
+}
+
+.purchasedItemsBar {
+  width: 160px;
+  flex-direction: column;
+  padding: 4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.Info > div.flex-center {
+  width: 78.87%;
+}
+
+.PCdeco.holder {
+  position: absolute;
+  top: 2%;
+  width: 300px;
+  z-index: 1;
+}
+
+.PCdeco.cover {
+  position: absolute;
+  top: 22.1%;
+  width: 200px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.ShopItem {
+  width: 130px;
+  margin: 10px 27px 10px 27px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  border: white solid 5px;
+}
+
+.purchasedItemsBar > img {
+  width: 90px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px 5px #6b6d86;
+}
+
+.shopItemsDiv {
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  padding: 10px;
+  margin: 0 auto;
+  width: 96.99%;
+}
+
+.Shop {
+  height: 100%;
+  width: 100%;
+}
+
+.green-border {
+  border: #b3c293 solid 5px;
+}
+
+.priceTag {
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.priceTag > p {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.unclickable {
+  pointer-events: none;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.endgameImg {
+  width: 300px;
+}
+
+.tile {
+  width: 65px;
+  height: 97.5px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: white;
+  font-family: "Gaegu", cursive;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.PCBar {
+  padding: 4px;
+  background-color: #faf0f1;
+  width: 160px;
+  flex-direction: column;
+  height: 673px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  justify-items: center;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.PCBar::-webkit-scrollbar,
+.Shop::-webkit-scrollbar,
+.shopItemsDiv::-webkit-scrollbar,
+.purchasedItemsBar::-webkit-scrollbar {
+  display: none;
+}
+
+.enlargedPC {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  display: inline;
+  box-shadow: 0 0 5px 2px #fff;
+}
+
+h4 {
+  margin: 0;
+}
+
+h2 {
+  margin: 15px 0;
+}
+
+#cardInfo {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.PC {
+  width: 90px;
+  border-radius: 5px;
+  height: 135px;
+  margin: 10px;
+  box-shadow: 2px 2px 5px #6b6d86;
+}
+
+h1 {
+  color: white;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-start {
+  justify-content: start;
+}
+
+.flex-center {
+  justify-content: center;
+  width: 100%;
+}
+
+.monitor-screen {
+  margin: 0 auto;
+  width: 803px;
+  height: 681px;
+  position: relative;
+  border: white 50px solid;
+  border-radius: 10px;
+  grid-row: 4 / span 2;
+  grid-column: 2;
+}
+
+.resetBTN {
+  display: block;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 180px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 5px 7px 2px 1px #ffc412;
+}
+
+.Start {
+  height: 100%;
+  width: 100%;
+  background-color: #f7f2f3;
+  color: #050a30;
+}
+
+.title {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  padding: 100px 0px 50px 0px;
+  font-size: 120px;
+  font-family: "Darumadrop One", cursive;
+}
+
+p {
+  color: #312020;
+}
+
+h3 {
+  color: white;
+  position: relative;
+  grid-row: 6 / span 1;
+  text-align: start;
+  margin-left: 12px;
+  grid-column: 2;
+  width: 853px;
+  font-size: 20px;
+  display: inline-block;
+}
+
+.star-icon {
+  height: 20px;
+  width: auto;
+  display: inline-block;
+}
+
+.startBTN {
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+}
+
+.instructions {
+  position: relative;
+  text-align: center;
+  top: 40;
+  font-weight: bold;
+  padding: none;
+  font-size: 20px;
+  font-family: "Gaegu", cursive;
+}
+
+.NavBar {
+  margin: 20px auto;
+  justify-content: space-around;
+  padding: none;
+  width: 905px;
+  height: 100%;
+  grid-row: 2 / span 2;
+  grid-column: 2;
+}
+
+.NavBarBTN {
+  width: 20%;
+  height: 100%;
+  border-radius: 10px;
+  border: black solid 1px;
+  background-color: #b3c293;
+  align-items: start;
+}
+
+.outer {
+  display: grid;
+  grid-template-rows: 4vh 6vh auto;
+  grid-template-columns: auto auto auto;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+}
