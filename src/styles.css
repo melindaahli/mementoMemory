@@ -69,6 +69,7 @@ body {
 
 .ShopItem {
   width: 130px;
+  height: 280px;
   margin: 10px 27px 10px 27px;
   padding: 10px;
   border-radius: 10px;

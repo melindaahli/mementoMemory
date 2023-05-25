@@ -15,7 +15,7 @@ export default function App() {
   };
 
   let [currentTab, setCurrentTab] = useState("Start");
-  let [numStars, setNumStars] = useState(100);
+  let [numStars, setNumStars] = useState(0);
   let [matchedPC, setMatchedPC] = useState([]);
   let [purchasedItems, setPurchasedItems] = useState([]);
   let [PCdeco, setPCdeco] = useState("");
