@@ -1,14 +1,16 @@
+import DifficultyCard from "./components/DifficultyCard.js";
+
 function Start(props) {
   return (
     <div className="Start">
       <p className="title">Memento</p>
-      <p className="instructions">match all the cards to win!</p>
-      <button
-        class="startBTN"
-        onClick={() => props.setCurrentTab("MemoryGame")}
-      >
-        start game!
-      </button>
+      <p className="instructions">choose the number of cards:</p>
+      <div className="flex-container flex-center">
+       <DifficultyCard NTiles=16 />
+       <DifficultyCard NTiles=20 />
+       <DifficultyCard NTiles=24 />
+       <DifficultyCard NTiles=28 />
+      </div>
     </div>
   );
 }
