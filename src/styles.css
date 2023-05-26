@@ -94,7 +94,7 @@ body {
   background-color: rgba(255, 255, 255, 0.45);
   border-radius: 5px;
   padding: 5px;
-  box-shadow: 2px 2px 5px #6b6d86;
+  box-shadow: 2px 2px 5px var(--foggy-navy);
 }
 
 .shopItemsDiv {
