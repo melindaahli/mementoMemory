@@ -15,19 +15,19 @@ body {
 }
 
 .GameBoard {
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
-  padding: 20px;
-  width: 500px;
-  margin: 0 auto;
+    display: flex;
+    flex-flow: column wrap;
+    height: 662px;
+    margin: 10px;
+    align-content: center;
+    justify-content: space-evenly;
 }
 
 .Tile {
-  width: 80px;
+  width: 70px;
   flex: 1 1 auto;
   padding: none;
-  height: 120px;
+  height: 105px;
   margin: 20px;
   border: none;
   border-radius: 5px;
@@ -130,8 +130,7 @@ img {
 }
 
 .tile {
-  width: 65px;
-  height: 97.5px;
+  height: 90px;
   border-radius: 5px;
 }
 
