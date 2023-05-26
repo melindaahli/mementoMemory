@@ -1,3 +1,7 @@
+: root {
+  --light-green: #b3c293;
+}
+
 .App {
   font-family: "Gaegu", cursive;
   text-align: center;
@@ -103,7 +107,7 @@ body {
 }
 
 .green-border {
-  border: #b3c293 solid 5px;
+  border: var(--light-green) solid 5px;
 }
 
 .priceTag {
