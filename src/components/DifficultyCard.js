@@ -1,3 +1,5 @@
+import tileDataJSON from "../tileData.json";
+
 function DifficultyCard(props) {
   function changeTileMarginInCSS(NTiles) {
     if (NTiles <= 20) {
@@ -14,10 +16,12 @@ function DifficultyCard(props) {
         props.setCurrentTab("MemoryGame");
         props.setNTiles(props.NTiles);
         changeTileMarginInCSS(props.NTiles);
-        console.log(props.NTiles)
+        props.setTileData(
+        props.shuffle(props.getSetOfnTiles(props.NTiles, tileDataJSON))
+        );
       }}
     >
-      {props.NTiles}!
+      {props.NTiles}
     </button>
   );
 }

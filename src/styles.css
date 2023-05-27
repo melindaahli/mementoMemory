@@ -125,7 +125,6 @@ body {
 
 .priceTag > p {
   display: inline-block;
-  font-weight: bold;
 }
 
 .unclickable {
@@ -142,6 +141,7 @@ img {
 }
 
 .tile {
+  width: 60px;
   height: 90px;
   border-radius: 5px;
 }
@@ -241,7 +241,6 @@ h1 {
   height: 50px;
   border-radius: 10px;
   font-size: 20px;
-  font-weight: bold;
   border: none;
   box-shadow: 5px 7px 2px 1px var(--yellow-orange);
 }
@@ -264,6 +263,7 @@ h1 {
 
 p {
   color: var(--dark-brown);
+  font-weight: bold;
 }
 
 h3 {
@@ -294,9 +294,8 @@ h3 {
 .instructions {
   position: relative;
   text-align: center;
-  top: 40;
-  font-weight: bold;
-  padding: none;
+  top: -50px;
+  padding: 0;
   font-size: 20px;
   font-family: "Gaegu", cursive;
 }

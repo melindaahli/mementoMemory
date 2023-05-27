@@ -3,31 +3,19 @@ import PCBar from "./PCBar.js";
 import { useState, useEffect } from "react";
 import tileDataJSON from "../tileData.json";
 
-function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
-  // While there remain elements to shuffle.
-  while (currentIndex !== 0) {
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-  return array;
-}
-
 function MemoryGame(props) {
-  let shuffledTileData = shuffle(props.tileData);
-  // let [shuffledTileDataState, setShuffledTileDataState] = useState(shuffle(getSetOfnTiles(props.NTiles, tileDataJSON)));
-  let [tileDataState, setTileDataState] = useState(shuffledTileData);
+  // let shuffledTileData = shuffle(props.tileData);
+  // let [tileDataState, setTileDataState] = useState(shuffledTileData);
   let [selectedTile1, setSelectedTile1] = useState("");
   let [selectedTile2, setSelectedTile2] = useState("");
   let [matchedTiles, setMatchedTiles] = useState([]);
   let [pageState, setPageState] = useState("game");
+
+  // useEffect(() => {
+
+  // shuffledTileData = shuffle(props.tileData);
+  // setTileDataState(shuffledTileData);
+  // // }, [props.tileData]);
 
   useEffect(() => {
     function updateSelectedTiles() {
@@ -36,7 +24,7 @@ function MemoryGame(props) {
       setSelectedTile2("");
     }
 
-    if (matchedTiles.length === tileDataState.length) {
+    if (matchedTiles.length === props.tileData.length) {
       setPageState("win");
     }
     if (!selectedTile1 || !selectedTile2) {
@@ -70,17 +58,23 @@ function MemoryGame(props) {
 
   function flipTile(tileNumberInt, showImage) {
     let newTileDataState = getNewTileState(
-      tileDataState,
+      props.tileData,
       tileNumberInt,
       showImage
     );
-    setTileDataState(newTileDataState);
+    props.setTileData(newTileDataState);
   }
 
   function flip2Tile(tile1Int, tile2Int, showImage) {
-    let newTileDataState = getNewTileState(tileDataState, tile1Int, showImage);
+    let newTileDataState = getNewTileState(props.tileData, tile1Int, showImage);
     newTileDataState = getNewTileState(newTileDataState, tile2Int, showImage);
-    setTileDataState(newTileDataState);
+    props.setTileData(newTileDataState);
+  }
+
+  function flipALLTiles(tileArray, showImage) {
+    tileArray.forEach((tile) =>
+      getNewTileState(tileArray, tile["tileNumber"], showImage)
+    );
   }
 
   function getNewTileState(oldTileDataState, tileNumberInt, showImage) {
@@ -109,7 +103,6 @@ function MemoryGame(props) {
       let newMatchedPC = props.matchedPC;
       newMatchedPC.unshift(getImageFromTileNum(tile1));
       props.setMatchedPC(newMatchedPC);
-
       return true;
     } else {
       return false;
@@ -117,15 +110,14 @@ function MemoryGame(props) {
   }
 
   function getImageFromTileNum(tileNumber) {
-    return tileDataState[Number(tileNumber)]?.image;
+    return props.tileData[Number(tileNumber)]?.image;
   }
 
   function reset() {
     setPageState("game");
-    shuffle(shuffledTileDataState);
-    setTileDataState(shuffledTileDataState);
+    props.setTileData(props.getSetOfnTiles(props.NTiles, tileDataJSON));
     setMatchedTiles([]);
-    props.setNumStars(props.numStars + 16);
+    props.setNumStars(props.numStars + props.NTiles);
   }
 
   function getPage() {
@@ -142,7 +134,7 @@ function MemoryGame(props) {
               style={{ height: "500px" }}
             >
               <div className="GameBoard">
-                {tileDataState.map(({ image, isFlipped }, index) => {
+                {props.tileData.map(({ image, isFlipped }, index) => {
                   return (
                     <Tile
                       number={index}
@@ -168,7 +160,7 @@ function MemoryGame(props) {
             src="https://media.tenor.com/YSg1RfzumocAAAAi/eyes-happy.gif"
           ></img>
           <button className="resetBTN" onClick={reset}>
-            flip cards over!
+            more cards!
           </button>
         </div>
       );

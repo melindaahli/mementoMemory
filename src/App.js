@@ -26,34 +26,48 @@ export default function App() {
   let [infoCardName, setInfoCardName] = useState("name");
   let [infoCardGroupName, setInfoCardGroupName] = useState("group");
   let [shopItemsState, setShopItemsState] = useState(shopItems);
-  let [NTiles, setNTiles] = useState();
-  let tileData;
-  
-  useEffect(() => {
-    tileData = getSetOfnTiles(NTiles, tileDataJSON);
-  }, [NTiles]);
-
-
-  
-    function getSetOfnTiles(nTiles, tileArray) {
-    let setOfNTiles = tileArray;
-    let numTilesToRemove = tileArray.length - nTiles;
-    for (let i = 0; i < numTilesToRemove; ) {
-      let startIndex = Math.floor(Math.random() * (tileArray.length / 2)) * 2;
-      tileArray.splice(startIndex, 2);
-      i = i + 2;
-    }
-    return setOfNTiles.flat();
-  }
+  let [NTiles, setNTiles] = useState(16);
+  let [tileData, setTileData] = useState(getSetOfnTiles(NTiles, tileDataJSON));
 
   let nameToGroupData = {};
-  tileDataJSON.forEach(function ({ name, group }) {
+  tileDataJSON.flat().forEach(function ({ name, group }) {
     nameToGroupData[name] = group;
   });
+
+  function getSetOfnTiles(NTiles, fullTileData) {
+    let setOfNTiles = shuffle(fullTileData).flat();
+    console.log("set of n tiles", setOfNTiles);
+    // let startIndex = Math.floor(Math.random() * (setOfNTiles.length / 2)) * 2;
+    let newSetOfNTiles = setOfNTiles.slice(0, NTiles);
+    // for (let i = 0; i < numTilesToRemove; ) {
+    //
+    //   setOfNTiles.slice(startIndex, 2);
+    //   i = i + 2;
+    // }
+    console.log("NTiles = ", NTiles, "new setOfNTiles = ", newSetOfNTiles);
+    return newSetOfNTiles;
+  }
 
   function setDecoOnInfoCard(url, type) {
     setPCdeco(url);
     setPCdecoType(type);
+  }
+
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+    return array;
   }
 
   function getComponentFromString(key) {
@@ -66,13 +80,16 @@ export default function App() {
         // for Start tab
         NTiles={NTiles}
         setNTiles={setNTiles}
+        getSetOfnTiles={getSetOfnTiles}
         // for MemoryGame tab
         tileData={tileData}
+        setTileData={setTileData}
         numStars={numStars}
         setNumStars={setNumStars}
         matchedPC={matchedPC}
         setMatchedPC={setMatchedPC}
         nameToGroupData={nameToGroupData}
+        shuffle={shuffle}
         // for Shop tab
         shopItemsState={shopItemsState}
         purchasedItems={purchasedItems}
