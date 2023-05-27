@@ -26,9 +26,11 @@ function Shop(props) {
         }
       });
       props.setShopItemsState(newShopItemsState);
-      return "purchased!";
+      props.setShowAlert("visible");
+      props.setAlertMessage("purchased!");
     } else {
-      return "earn more stars through the game first!";
+      props.setShowAlert("visible");
+      props.setAlertMessage("you need to earn more stars first!");
     }
   }
 
