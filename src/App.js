@@ -1,5 +1,5 @@
 import "./styles.css";
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import NavBar from "./components/NavBar.js";
 import Start from "./components/Start.js";
 import Shop from "./components/Shop.js";
@@ -37,13 +37,7 @@ export default function App() {
   function getSetOfnTiles(NTiles, fullTileData) {
     let setOfNTiles = shuffle(fullTileData).flat();
     console.log("set of n tiles", setOfNTiles);
-    // let startIndex = Math.floor(Math.random() * (setOfNTiles.length / 2)) * 2;
     let newSetOfNTiles = setOfNTiles.slice(0, NTiles);
-    // for (let i = 0; i < numTilesToRemove; ) {
-    //
-    //   setOfNTiles.slice(startIndex, 2);
-    //   i = i + 2;
-    // }
     console.log("NTiles = ", NTiles, "new setOfNTiles = ", newSetOfNTiles);
     return newSetOfNTiles;
   }
