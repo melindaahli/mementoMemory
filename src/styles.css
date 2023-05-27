@@ -228,7 +228,7 @@ h1 {
   height: 681px;
   position: relative;
   border: white 50px solid;
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   grid-area: screen;
 }
 
@@ -302,15 +302,15 @@ h3 {
 
 .NavBar {
   margin: 20px auto;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0;
-  width: 905px;
+  width: 904px;
   height: 100%;
   grid-area: NavBar;
 }
 
 .NavBarBTN {
-  width: 20%;
+  width: 18%;
   height: 100%;
   border-radius: 10px;
   border: black solid 1px;

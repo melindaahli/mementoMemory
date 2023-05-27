@@ -8,6 +8,7 @@ import MemoryGame from "./components/MemoryGame.js";
 import tileDataJSON from "./tileData.json";
 import shopItems from "./shopItems.json";
 import Alert from "./components/Alert.js";
+import CollectBook from "./components/CollectBook.js";
 
 export default function App() {
   let componentList = {
@@ -15,6 +16,7 @@ export default function App() {
     MemoryGame: MemoryGame,
     Shop: Shop,
     Deco: Deco,
+    CollectBook: CollectBook,
   };
 
   let [currentTab, setCurrentTab] = useState("Start");
@@ -104,15 +106,16 @@ export default function App() {
       />
     );
   }
-  
-  console.log(showAlert)
-  console.log(alertMessage)
-  console.log(NTiles)
+
+  console.log(showAlert);
+  console.log(alertMessage);
+  console.log(NTiles);
 
   return (
     <div className="App">
       <div className="outer">
         <NavBar
+          currentTab={currentTab}
           setCurrentTab={setCurrentTab}
           setShowAlert={setShowAlert}
           setAlertMessage={setAlertMessage}
