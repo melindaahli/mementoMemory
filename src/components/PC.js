@@ -1,13 +1,6 @@
 function PC(props) {
-  let isCurrentTabInfo = false;
-
-  if (props.currentTab === "Info") {
-    isCurrentTabInfo = true;
-  }
-  console.log("is tab info", isCurrentTabInfo);
   function onClick() {
-    if (isCurrentTabInfo) {
-      console.log("clicked!");
+    if (props.currentTab === "Deco") {
       props.setInfoCard(props.imgURL);
     }
   }
