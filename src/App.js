@@ -41,7 +41,7 @@ export default function App() {
 
   function getSetOfnTiles(NTiles, fullTileData) {
     let setOfNTiles = shuffle(fullTileData).flat();
-    let newSetOfNTiles = setOfNTiles.slice(0, NTiles);
+    let newSetOfNTiles = shuffle(setOfNTiles.slice(0, NTiles));
     return newSetOfNTiles;
   }
 
@@ -106,10 +106,6 @@ export default function App() {
       />
     );
   }
-
-  console.log(showAlert);
-  console.log(alertMessage);
-  console.log(NTiles);
 
   return (
     <div className="App">
