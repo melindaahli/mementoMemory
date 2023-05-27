@@ -60,7 +60,7 @@ body {
   overflow-y: auto;
 }
 
-.Info > div.flex-center {
+.Deco > div.flex-center {
   width: 78.87%;
 }
 
@@ -229,8 +229,7 @@ h1 {
   position: relative;
   border: white 50px solid;
   border-radius: 10px;
-  grid-row: 4 / span 2;
-  grid-column: 2;
+  grid-area: screen;
 }
 
 .resetBTN {
@@ -269,13 +268,14 @@ p {
 h3 {
   color: white;
   position: relative;
-  grid-row: 6 / span 1;
-  text-align: start;
-  margin-left: 12px;
-  grid-column: 2;
-  width: 853px;
   font-size: 20px;
   display: inline-block;
+}
+
+.extraBar {
+  grid-area: extra;
+  display: flex;
+  justify-content: space-between;
 }
 
 .star-icon {
@@ -303,11 +303,10 @@ h3 {
 .NavBar {
   margin: 20px auto;
   justify-content: space-around;
-  padding: none;
+  padding: 0;
   width: 905px;
   height: 100%;
-  grid-row: 2 / span 2;
-  grid-column: 2;
+  grid-area: NavBar;
 }
 
 .NavBarBTN {
@@ -321,9 +320,81 @@ h3 {
 
 .outer {
   display: grid;
-  grid-template-rows: 4vh 6vh auto;
-  grid-template-columns: auto auto auto;
-  width: 100%;
+  grid-template-rows: 1fr 75px auto 75px 2.5fr;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-areas:
+    " . . ."
+    ". NavBar ."
+    ". screen ."
+    ". extra ."
+    ". . .";
+  width: 100vw;
+  height: 100vh;
   position: relative;
   justify-content: center;
+}
+
+.Alert {
+  /* display */
+  display: grid;
+  grid-template-areas:
+    "message"
+    "cancel";
+  grid-template-rows: 5fr 0.5fr;
+  grid-template-columns: 1fr;
+  grid-row-gap: 7px;
+  text-align: center;
+  z-index: 1;
+
+  /* design */
+  background-color: white;
+  border: rgb(107, 109, 134, 1) solid 3px;
+  border-radius: 5px;
+
+  /* positioning */
+  position: absolute;
+  grid-area: screen;
+  /* box model */
+  width: 200px;
+  height: 100px;
+  padding: 7px;
+  margin: 10px 10px 10px 572px;
+}
+
+.closeAlert {
+  border: var(--light-green) solid 1px;
+  border-radius: 5px;
+  background-color: var(--light-green);
+  opacity: 65%;
+  color: white;
+  grid-area: cancel;
+  z-index: 2;
+  font-weight: bold;
+}
+
+.closeAlert:hover {
+  cursor: pointer;
+}
+
+.closeAlert > p {
+  padding: 5px;
+  margin: 0;
+}
+
+.alertMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: rgb(107, 109, 134, 0.6) solid 1px; */
+  border-radius: 5px;
+  grid-area: message;
+  color: var(--foggy-navy);
+  /* background-color: var(--pink); */
+  font-weight: bold;
+  overflow-y: hidden;
+  line-height: 18px;
+}
+
+.alertMessage > p {
+  width: 95%;
 }

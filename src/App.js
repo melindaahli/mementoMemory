@@ -3,17 +3,18 @@ import { React, useState } from "react";
 import NavBar from "./components/NavBar.js";
 import Start from "./components/Start.js";
 import Shop from "./components/Shop.js";
-import Info from "./components/Info.js";
+import Deco from "./components/Deco.js";
 import MemoryGame from "./components/MemoryGame.js";
 import tileDataJSON from "./tileData.json";
 import shopItems from "./shopItems.json";
+import Alert from "./components/Alert.js";
 
 export default function App() {
   let componentList = {
     Start: Start,
     MemoryGame: MemoryGame,
     Shop: Shop,
-    Info: Info,
+    Deco: Deco,
   };
 
   let [currentTab, setCurrentTab] = useState("Start");
@@ -26,8 +27,10 @@ export default function App() {
   let [infoCardName, setInfoCardName] = useState("name");
   let [infoCardGroupName, setInfoCardGroupName] = useState("group");
   let [shopItemsState, setShopItemsState] = useState(shopItems);
-  let [NTiles, setNTiles] = useState(16);
+  let [NTiles, setNTiles] = useState(0);
   let [tileData, setTileData] = useState(getSetOfnTiles(NTiles, tileDataJSON));
+  let [showAlert, setShowAlert] = useState("hidden");
+  let [alertMessage, setAlertMessage] = useState("hi");
 
   let nameToGroupData = {};
   tileDataJSON.flat().forEach(function ({ name, group }) {
@@ -36,9 +39,7 @@ export default function App() {
 
   function getSetOfnTiles(NTiles, fullTileData) {
     let setOfNTiles = shuffle(fullTileData).flat();
-    console.log("set of n tiles", setOfNTiles);
     let newSetOfNTiles = setOfNTiles.slice(0, NTiles);
-    console.log("NTiles = ", NTiles, "new setOfNTiles = ", newSetOfNTiles);
     return newSetOfNTiles;
   }
 
@@ -68,7 +69,6 @@ export default function App() {
     let Component = componentList[key];
     return (
       <Component
-        // for NavBar
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
         // for Start tab
@@ -89,6 +89,8 @@ export default function App() {
         purchasedItems={purchasedItems}
         setPurchasedItems={setPurchasedItems}
         setShopItemsState={setShopItemsState}
+        setShowAlert={setShowAlert}
+        setAlertMessage={setAlertMessage}
         // for Info tab
         PCdeco={PCdeco}
         PCdecoType={PCdecoType}
@@ -102,22 +104,38 @@ export default function App() {
       />
     );
   }
+  
+  console.log(showAlert)
+  console.log(alertMessage)
+  console.log(NTiles)
 
   return (
     <div className="App">
       <div className="outer">
-        <NavBar setCurrentTab={setCurrentTab} />
+        <NavBar
+          setCurrentTab={setCurrentTab}
+          setShowAlert={setShowAlert}
+          setAlertMessage={setAlertMessage}
+          NTiles={NTiles}
+        />
         <div className="monitor-screen">
+          <Alert
+            alertMessage={alertMessage}
+            showAlert={showAlert}
+            setShowAlert={setShowAlert}
+          />
           {getComponentFromString(currentTab)}
         </div>
-        <h3>
-          stars: {numStars}
-          <img
-            className="star-icon"
-            src="https://i.pinimg.com/originals/93/a6/95/93a69514bf3b0af82c35b4a8c48395f4.png"
-            alt="star"
-          />
-        </h3>
+        <div className="extraBar">
+          <h3>
+            stars: {numStars}
+            <img
+              className="star-icon"
+              src="https://i.pinimg.com/originals/93/a6/95/93a69514bf3b0af82c35b4a8c48395f4.png"
+              alt="star"
+            />
+          </h3>
+        </div>
       </div>
     </div>
   );

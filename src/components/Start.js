@@ -13,6 +13,7 @@ function Start(props) {
         {tileSetSizes.map((tileSetSize) => {
           return (
             <DifficultyCard
+              key={tileSetSize}
               NTiles={tileSetSize}
               setNTiles={props.setNTiles}
               setCurrentTab={props.setCurrentTab}

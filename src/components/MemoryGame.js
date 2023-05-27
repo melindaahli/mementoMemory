@@ -4,18 +4,10 @@ import { useState, useEffect } from "react";
 import tileDataJSON from "../tileData.json";
 
 function MemoryGame(props) {
-  // let shuffledTileData = shuffle(props.tileData);
-  // let [tileDataState, setTileDataState] = useState(shuffledTileData);
   let [selectedTile1, setSelectedTile1] = useState("");
   let [selectedTile2, setSelectedTile2] = useState("");
   let [matchedTiles, setMatchedTiles] = useState([]);
   let [pageState, setPageState] = useState("game");
-
-  // useEffect(() => {
-
-  // shuffledTileData = shuffle(props.tileData);
-  // setTileDataState(shuffledTileData);
-  // // }, [props.tileData]);
 
   useEffect(() => {
     function updateSelectedTiles() {
@@ -24,7 +16,7 @@ function MemoryGame(props) {
       setSelectedTile2("");
     }
 
-    if (matchedTiles.length === props.tileData.length) {
+    if (matchedTiles.length != 0 && matchedTiles.length === props.tileData.length) {
       setPageState("win");
     }
     if (!selectedTile1 || !selectedTile2) {
@@ -71,17 +63,8 @@ function MemoryGame(props) {
     props.setTileData(newTileDataState);
   }
 
-  function flipALLTiles(tileArray, showImage) {
-    tileArray.forEach((tile) =>
-      getNewTileState(tileArray, tile["tileNumber"], showImage)
-    );
-  }
-
   function getNewTileState(oldTileDataState, tileNumberInt, showImage) {
     let newTileDataState = [];
-    // let selectedTileIndex = oldTileDataState.findIndex(
-    //   (tile) => tile.tileNumber === tileNumberInt
-    // );
     oldTileDataState.forEach((tile, index) => {
       if (index === tileNumberInt) {
         newTileDataState.push({

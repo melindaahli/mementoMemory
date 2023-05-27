@@ -14,7 +14,7 @@ function ShopItem(props) {
       <button
         className="shopBTN"
         disabled={props.isPurchased}
-        onClick={() => alert(props.buyItem(props.imgURL, props.price))}
+        onClick={() => props.buyItem(props.imgURL, props.price)}
       >
         buy
       </button>

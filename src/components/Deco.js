@@ -19,7 +19,7 @@ function Info(props) {
   }
 
   return (
-    <div className="Info flex-container flex-start">
+    <div className="Deco flex-container flex-start">
       <PCBar
         matchedPC={props.matchedPC}
         setMatchedPC={props.setMatchedPC}
