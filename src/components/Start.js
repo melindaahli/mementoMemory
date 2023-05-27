@@ -1,15 +1,27 @@
-import DifficultyCard from "./components/DifficultyCard.js";
+import DifficultyCard from "./DifficultyCard.js";
 
 function Start(props) {
+  let tileSetSizes = [16, 20, 24, 28];
+
   return (
     <div className="Start">
       <p className="title">Memento</p>
-      <p className="instructions">choose the number of cards:</p>
+      <p className="text instructions">match cards to win!</p>
+      <br /><br /><br />
+      <p className="text">choose the number of cards:</p>
       <div className="flex-container flex-center">
-       <DifficultyCard NTiles=16 />
-       <DifficultyCard NTiles=20 />
-       <DifficultyCard NTiles=24 />
-       <DifficultyCard NTiles=28 />
+        {tileSetSizes.map((tileSetSize) => {
+          return (
+            <DifficultyCard
+              NTiles={tileSetSize}
+              setNTiles={props.setNTiles}
+              setCurrentTab={props.setCurrentTab}
+              setTileData={props.setTileData}
+              shuffle={props.shuffle}
+              getSetOfnTiles={props.getSetOfnTiles}
+            />
+          );
+        })}
       </div>
     </div>
   );

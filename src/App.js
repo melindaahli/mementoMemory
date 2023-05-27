@@ -13,7 +13,7 @@ export default function App() {
     Start: Start,
     MemoryGame: MemoryGame,
     Shop: Shop,
-    Info: Info
+    Info: Info,
   };
 
   let [currentTab, setCurrentTab] = useState("Start");
@@ -26,35 +26,42 @@ export default function App() {
   let [infoCardName, setInfoCardName] = useState("name");
   let [infoCardGroupName, setInfoCardGroupName] = useState("group");
   let [shopItemsState, setShopItemsState] = useState(shopItems);
+  let [NTiles, setNTiles] = useState(16);
+  let [tileData, setTileData] = useState(getSetOfnTiles(NTiles, tileDataJSON));
 
-  let tileData = getSetOfnTiles(20);
-  
-  function getSetOfnTiles(nTiles) {
-    let setOfNTiles = tileDataJSON;
-    let numTilesToRemove = tileDataJSON.length - nTiles;
-    for (let i = 0; i < numTilesToRemove;) {
-      let startIndex = Math.floor(Math.random() * (tileDataJSON.length / 2) ) * 2;
-      // let pair = tileDataJSON.slice(startIndex, startIndex + 2);
-      // if (!setOfNTiles.includes(pair)) {
-      //   setOfNTiles.push(pair)
-      //   i = i + 2;
-      // }
-      tileDataJSON.splice(startIndex, 2)
-      i = i + 2;
-    }
-    return setOfNTiles.flat()
-  }
-  
-  console.log("getSetOfnTiles(20):", getSetOfnTiles(20))
-  
   let nameToGroupData = {};
-  tileData.forEach(function({ name, group }) {
-          nameToGroupData[name] = group;
-      });
+  tileDataJSON.flat().forEach(function ({ name, group }) {
+    nameToGroupData[name] = group;
+  });
+
+  function getSetOfnTiles(NTiles, fullTileData) {
+    let setOfNTiles = shuffle(fullTileData).flat();
+    console.log("set of n tiles", setOfNTiles);
+    let newSetOfNTiles = setOfNTiles.slice(0, NTiles);
+    console.log("NTiles = ", NTiles, "new setOfNTiles = ", newSetOfNTiles);
+    return newSetOfNTiles;
+  }
 
   function setDecoOnInfoCard(url, type) {
     setPCdeco(url);
     setPCdecoType(type);
+  }
+
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
+    // While there remain elements to shuffle.
+    while (currentIndex !== 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+    return array;
   }
 
   function getComponentFromString(key) {
@@ -64,13 +71,19 @@ export default function App() {
         // for NavBar
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
+        // for Start tab
+        NTiles={NTiles}
+        setNTiles={setNTiles}
+        getSetOfnTiles={getSetOfnTiles}
         // for MemoryGame tab
+        tileData={tileData}
+        setTileData={setTileData}
         numStars={numStars}
         setNumStars={setNumStars}
         matchedPC={matchedPC}
         setMatchedPC={setMatchedPC}
-        tileData={tileData}
         nameToGroupData={nameToGroupData}
+        shuffle={shuffle}
         // for Shop tab
         shopItemsState={shopItemsState}
         purchasedItems={purchasedItems}
