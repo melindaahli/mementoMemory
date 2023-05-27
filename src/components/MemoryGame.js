@@ -1,6 +1,7 @@
 import Tile from "./Tile.js";
 import PCBar from "./PCBar.js";
 import { useState, useEffect } from "react";
+import tileDataJSON from "../tileData.json";
 
 function shuffle(array) {
   let currentIndex = array.length,
@@ -13,7 +14,7 @@ function shuffle(array) {
     // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex],
-      array[currentIndex]
+      array[currentIndex],
     ];
   }
   return array;
@@ -21,6 +22,7 @@ function shuffle(array) {
 
 function MemoryGame(props) {
   let shuffledTileData = shuffle(props.tileData);
+  // let [shuffledTileDataState, setShuffledTileDataState] = useState(shuffle(getSetOfnTiles(props.NTiles, tileDataJSON)));
   let [tileDataState, setTileDataState] = useState(shuffledTileData);
   let [selectedTile1, setSelectedTile1] = useState("");
   let [selectedTile2, setSelectedTile2] = useState("");
@@ -90,7 +92,7 @@ function MemoryGame(props) {
       if (index === tileNumberInt) {
         newTileDataState.push({
           ...tile,
-          isFlipped: showImage
+          isFlipped: showImage,
         });
       } else {
         newTileDataState.push(tile);
@@ -120,8 +122,8 @@ function MemoryGame(props) {
 
   function reset() {
     setPageState("game");
-    shuffle(shuffledTileData);
-    setTileDataState(shuffledTileData);
+    shuffle(shuffledTileDataState);
+    setTileDataState(shuffledTileDataState);
     setMatchedTiles([]);
     props.setNumStars(props.numStars + 16);
   }
@@ -135,7 +137,10 @@ function MemoryGame(props) {
               matchedPC={props.matchedPC}
               nameToGroupData={props.nameToGroupData}
             />
-            <div className="flex-container flex-center">
+            <div
+              className="flex-container flex-center"
+              style={{ height: "500px" }}
+            >
               <div className="GameBoard">
                 {tileDataState.map(({ image, isFlipped }, index) => {
                   return (

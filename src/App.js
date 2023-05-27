@@ -1,5 +1,5 @@
 import "./styles.css";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import NavBar from "./components/NavBar.js";
 import Start from "./components/Start.js";
 import Shop from "./components/Shop.js";
@@ -13,7 +13,7 @@ export default function App() {
     Start: Start,
     MemoryGame: MemoryGame,
     Shop: Shop,
-    Info: Info
+    Info: Info,
   };
 
   let [currentTab, setCurrentTab] = useState("Start");
@@ -26,31 +26,30 @@ export default function App() {
   let [infoCardName, setInfoCardName] = useState("name");
   let [infoCardGroupName, setInfoCardGroupName] = useState("group");
   let [shopItemsState, setShopItemsState] = useState(shopItems);
-
-  let tileData = getSetOfnTiles(20);
+  let [NTiles, setNTiles] = useState();
+  let tileData;
   
-  function getSetOfnTiles(nTiles) {
-    let setOfNTiles = tileDataJSON;
-    let numTilesToRemove = tileDataJSON.length - nTiles;
-    for (let i = 0; i < numTilesToRemove;) {
-      let startIndex = Math.floor(Math.random() * (tileDataJSON.length / 2) ) * 2;
-      // let pair = tileDataJSON.slice(startIndex, startIndex + 2);
-      // if (!setOfNTiles.includes(pair)) {
-      //   setOfNTiles.push(pair)
-      //   i = i + 2;
-      // }
-      tileDataJSON.splice(startIndex, 2)
+  useEffect(() => {
+    tileData = getSetOfnTiles(NTiles, tileDataJSON);
+  }, [NTiles]);
+
+
+  
+    function getSetOfnTiles(nTiles, tileArray) {
+    let setOfNTiles = tileArray;
+    let numTilesToRemove = tileArray.length - nTiles;
+    for (let i = 0; i < numTilesToRemove; ) {
+      let startIndex = Math.floor(Math.random() * (tileArray.length / 2)) * 2;
+      tileArray.splice(startIndex, 2);
       i = i + 2;
     }
-    return setOfNTiles.flat()
+    return setOfNTiles.flat();
   }
-  
-  console.log("getSetOfnTiles(20):", getSetOfnTiles(20))
-  
+
   let nameToGroupData = {};
-  tileData.forEach(function({ name, group }) {
-          nameToGroupData[name] = group;
-      });
+  tileDataJSON.forEach(function ({ name, group }) {
+    nameToGroupData[name] = group;
+  });
 
   function setDecoOnInfoCard(url, type) {
     setPCdeco(url);
@@ -64,12 +63,15 @@ export default function App() {
         // for NavBar
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
+        // for Start tab
+        NTiles={NTiles}
+        setNTiles={setNTiles}
         // for MemoryGame tab
+        tileData={tileData}
         numStars={numStars}
         setNumStars={setNumStars}
         matchedPC={matchedPC}
         setMatchedPC={setMatchedPC}
-        tileData={tileData}
         nameToGroupData={nameToGroupData}
         // for Shop tab
         shopItemsState={shopItemsState}
