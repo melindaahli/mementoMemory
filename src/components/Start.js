@@ -1,4 +1,4 @@
-import DifficultyCard from "./DifficultyCard";
+import DifficultyCard from "./DifficultyCard.js";
 
 function Start(props) {
   let tileSetSizes = [16, 20, 24, 28];
