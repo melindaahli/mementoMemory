@@ -5,6 +5,8 @@ import Start from "./components/Start.js";
 import Shop from "./components/Shop.js";
 import Info from "./components/Info.js";
 import MemoryGame from "./components/MemoryGame.js";
+import tileDataJSON from "./tileData.json";
+import shopItems from "./shopItems.json";
 
 export default function App() {
   let componentList = {
@@ -15,7 +17,7 @@ export default function App() {
   };
 
   let [currentTab, setCurrentTab] = useState("Start");
-  let [numStars, setNumStars] = useState(100);
+  let [numStars, setNumStars] = useState(0);
   let [matchedPC, setMatchedPC] = useState([]);
   let [purchasedItems, setPurchasedItems] = useState([]);
   let [PCdeco, setPCdeco] = useState("");
@@ -23,231 +25,32 @@ export default function App() {
   let [infoCardURL, setInfoCardURL] = useState("");
   let [infoCardName, setInfoCardName] = useState("name");
   let [infoCardGroupName, setInfoCardGroupName] = useState("group");
-  let holderPrice = 10;
-  let coverPrice = 5;
-  let shopItems = [
-    {
-      url: "/shopImages/holder-pochacco.png",
-      price: holderPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/holder-cinnamoroll.png",
-      price: holderPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/holder-hellokitty.png",
-      price: holderPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/holder-pompompurin.png",
-      price: holderPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/holder-kuromi.png",
-      price: holderPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/holder-mymelody.png",
-      price: holderPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-blackribbon.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-blueribbons.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-flower.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-greenbear.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-pinkribbon.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-pompompurin.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-star.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-toastcat.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-plaid.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-white_blueribbon.png",
-      price: coverPrice,
-      isPurchased: false
-    },
-    {
-      url: "/shopImages/cover-orange_whiteribbon.png",
-      price: coverPrice,
-      isPurchased: false
-    }
-  ];
   let [shopItemsState, setShopItemsState] = useState(shopItems);
 
-  let tileData = [
-    // soobin
-    {
-      tileNumber: 0,
-      isFlipped: false,
-      image: "/PCimages/soobin.jpg",
-      name: "soobin",
-      group: "tomorrow x together"
-    },
-    {
-      tileNumber: 1,
-      isFlipped: false,
-      image: "/PCimages/soobin.jpg",
-      name: "soobin",
-      group: "tomorrow x together"
-    },
-
-    // han
-    {
-      tileNumber: 2,
-      isFlipped: false,
-      image: "/PCimages/han.jpg",
-      name: "han",
-      group: "stray kids"
-    },
-    {
-      tileNumber: 3,
-      isFlipped: false,
-      image: "/PCimages/han.jpg",
-      name: "han",
-      group: "stray kids"
-    },
-
-    //san
-    {
-      tileNumber: 4,
-      isFlipped: false,
-      image: "/PCimages/san.jpg",
-      name: "san",
-      group: "ateez"
-    },
-    {
-      tileNumber: 5,
-      isFlipped: false,
-      image: "/PCimages/san.jpg",
-      name: "san",
-      group: "ateez"
-    },
-
-    //moonbin
-    {
-      tileNumber: 6,
-      isFlipped: false,
-      image: "/PCimages/moonbin.jpg",
-      name: "moonbin",
-      group: "astro"
-    },
-    {
-      tileNumber: 7,
-      isFlipped: false,
-      image: "/PCimages/moonbin.jpg",
-      name: "moonbin",
-      group: "astro"
-    },
-
-    //youngji
-    {
-      tileNumber: 8,
-      isFlipped: false,
-      image: "/PCimages/youngji.jpg",
-      name: "youngji",
-      group: "solo"
-    },
-    {
-      tileNumber: 9,
-      isFlipped: false,
-      image: "/PCimages/youngji.jpg",
-      name: "youngji",
-      group: "solo"
-    },
-
-    //kazuha
-    {
-      tileNumber: 10,
-      isFlipped: false,
-      image: "/PCimages/kazuha.jpg",
-      name: "kazuha",
-      group: "le sserafim"
-    },
-    {
-      tileNumber: 11,
-      isFlipped: false,
-      image: "/PCimages/kazuha.jpg",
-      name: "kazuha",
-      group: "le sserafim"
-    },
-
-    //jk
-    {
-      tileNumber: 12,
-      isFlipped: false,
-      image: "/PCimages/jungkook.jpg",
-      name: "jungkook",
-      group: "bts"
-    },
-    {
-      tileNumber: 13,
-      isFlipped: false,
-      image: "/PCimages/jungkook.jpg",
-      name: "jungkook",
-      group: "bts"
-    },
-
-    //scoups
-    {
-      tileNumber: 14,
-      isFlipped: false,
-      image: "/PCimages/scoups.jpg",
-      name: "scoups",
-      group: "seventeen"
-    },
-    {
-      tileNumber: 15,
-      isFlipped: false,
-      image: "/PCimages/scoups.jpg",
-      name: "scoups",
-      group: "seventeen"
+  let tileData = getSetOfnTiles(20);
+  
+  function getSetOfnTiles(nTiles) {
+    let setOfNTiles = tileDataJSON;
+    let numTilesToRemove = tileDataJSON.length - nTiles;
+    for (let i = 0; i < numTilesToRemove;) {
+      let startIndex = Math.floor(Math.random() * (tileDataJSON.length / 2) ) * 2;
+      // let pair = tileDataJSON.slice(startIndex, startIndex + 2);
+      // if (!setOfNTiles.includes(pair)) {
+      //   setOfNTiles.push(pair)
+      //   i = i + 2;
+      // }
+      tileDataJSON.splice(startIndex, 2)
+      i = i + 2;
     }
-  ];
-
+    return setOfNTiles.flat()
+  }
+  
+  console.log("getSetOfnTiles(20):", getSetOfnTiles(20))
+  
   let nameToGroupData = {};
-  tileData.forEach(({ name, group }) => {
-    nameToGroupData[name] = group;
-  });
+  tileData.forEach(function({ name, group }) {
+          nameToGroupData[name] = group;
+      });
 
   function setDecoOnInfoCard(url, type) {
     setPCdeco(url);

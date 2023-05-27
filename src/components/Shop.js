@@ -19,7 +19,7 @@ function Shop(props) {
         if (index === selectedItemIndex) {
           newShopItemsState.push({
             ...item,
-            isPurchased: true
+            isPurchased: true,
           });
         } else {
           newShopItemsState.push(item);
@@ -31,7 +31,6 @@ function Shop(props) {
       return "earn more stars through the game first!";
     }
   }
-  console.log(props.purchasedItems);
 
   function getItemTypeFromURL(url) {
     return url.substring(12, url.indexOf("-"));

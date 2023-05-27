@@ -1,0 +1,394 @@
+[
+    {
+      "tileNumber": 0,
+      "isFlipped": false,
+      "image": "/PCimages/soobin.jpg",
+      "name": "soobin",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 1,
+      "isFlipped": false,
+      "image": "/PCimages/soobin.jpg",
+      "name": "soobin",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 2,
+      "isFlipped": false,
+      "image": "/PCimages/han.jpg",
+      "name": "han",
+      "group": "stray kids"
+    },
+    {
+      "tileNumber": 3,
+      "isFlipped": false,
+      "image": "/PCimages/han.jpg",
+      "name": "han",
+      "group": "stray kids"
+    },
+    {
+      "tileNumber": 4,
+      "isFlipped": false,
+      "image": "/PCimages/san.jpg",
+      "name": "san",
+      "group": "ateez"
+    },
+    {
+      "tileNumber": 5,
+      "isFlipped": false,
+      "image": "/PCimages/san.jpg",
+      "name": "san",
+      "group": "ateez"
+    },
+    {
+      "tileNumber": 6,
+      "isFlipped": false,
+      "image": "/PCimages/moonbin.jpg",
+      "name": "moonbin",
+      "group": "astro"
+    },
+    {
+      "tileNumber": 7,
+      "isFlipped": false,
+      "image": "/PCimages/moonbin.jpg",
+      "name": "moonbin",
+      "group": "astro"
+    },
+    {
+      "tileNumber": 8,
+      "isFlipped": false,
+      "image": "/PCimages/youngji.jpg",
+      "name": "youngji",
+      "group": "soloist"
+    },
+    {
+      "tileNumber": 9,
+      "isFlipped": false,
+      "image": "/PCimages/youngji.jpg",
+      "name": "youngji",
+      "group": "soloist"
+    },
+    {
+      "tileNumber": 10,
+      "isFlipped": false,
+      "image": "/PCimages/kazuha.jpg",
+      "name": "kazuha",
+      "group": "le sserafim"
+    },
+    {
+      "tileNumber": 11,
+      "isFlipped": false,
+      "image": "/PCimages/kazuha.jpg",
+      "name": "kazuha",
+      "group": "le sserafim"
+    },
+    {
+      "tileNumber": 12,
+      "isFlipped": false,
+      "image": "/PCimages/jungkook.jpg",
+      "name": "jungkook",
+      "group": "bts"
+    },
+    {
+      "tileNumber": 13,
+      "isFlipped": false,
+      "image": "/PCimages/jungkook.jpg",
+      "name": "jungkook",
+      "group": "bts"
+    },
+    {
+      "tileNumber": 14,
+      "isFlipped": false,
+      "image": "/PCimages/scoups.jpg",
+      "name": "scoups",
+      "group": "seventeen"
+    },
+    {
+      "tileNumber": 15,
+      "isFlipped": false,
+      "image": "/PCimages/scoups.jpg",
+      "name": "scoups",
+      "group": "seventeen"
+    },
+    {
+      "tileNumber": 16,
+      "isFlipped": false,
+      "image": "/PCimages/iu.jpg",
+      "name": "iu",
+      "group": "soloist"
+    },
+    {
+      "tileNumber": 17,
+      "isFlipped": false,
+      "image": "/PCimages/iu.jpg",
+      "name": "iu",
+      "group": "soloist"
+    },
+    {
+      "tileNumber": 18,
+      "isFlipped": false,
+      "image": "/PCimages/baekhyun.jpg",
+      "name": "baekhyun",
+      "group": "exo"
+    },
+    {
+      "tileNumber": 19,
+      "isFlipped": false,
+      "image": "/PCimages/baekhyun.jpg",
+      "name": "baekhyun",
+      "group": "exo"
+    },
+    {
+      "tileNumber": 20,
+      "isFlipped": false,
+      "image": "/PCimages/beomgyu.jpg",
+      "name": "beomgyu",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 21,
+      "isFlipped": false,
+      "image": "/PCimages/beomgyu.jpg",
+      "name": "beomgyu",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 22,
+      "isFlipped": false,
+      "image": "/PCimages/taehyun.jpg",
+      "name": "taehyun",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 23,
+      "isFlipped": false,
+      "image": "/PCimages/taehyun.jpg",
+      "name": "taehyun",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 24,
+      "isFlipped": false,
+      "image": "/PCimages/hueningkai.jpg",
+      "name": "hueningkai",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 25,
+      "isFlipped": false,
+      "image": "/PCimages/hueningkai.jpg",
+      "name": "hueningkai",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 26,
+      "isFlipped": false,
+      "image": "/PCimages/winter.jpg",
+      "name": "winter",
+      "group": "aespa"
+    },
+    {
+      "tileNumber": 27,
+      "isFlipped": false,
+      "image": "/PCimages/winter.jpg",
+      "name": "winter",
+      "group": "aespa"
+    },
+    {
+      "tileNumber": 28,
+      "isFlipped": false,
+      "image": "/PCimages/yeonjun.jpg",
+      "name": "yeonjun",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 29,
+      "isFlipped": false,
+      "image": "/PCimages/yeonjun.jpg",
+      "name": "yeonjun",
+      "group": "tomorrow x together"
+    },
+    {
+      "tileNumber": 30,
+      "isFlipped": false,
+      "image": "/PCimages/chungha.jpg",
+      "name": "chungha",
+      "group": "soloist"
+    },
+    {
+      "tileNumber": 31,
+      "isFlipped": false,
+      "image": "/PCimages/chungha.jpg",
+      "name": "chungha",
+      "group": "soloist"
+    },
+    {
+      "tileNumber": 32,
+      "isFlipped": false,
+      "image": "/PCimages/wonyoung.jpg",
+      "name": "wonyoung",
+      "group": "ive"
+    },
+    {
+      "tileNumber": 33,
+      "isFlipped": false,
+      "image": "/PCimages/wonyoung.jpg",
+      "name": "wonyoung",
+      "group": "ive"
+    },
+    {
+      "tileNumber": 34,
+      "isFlipped": false,
+      "image": "/PCimages/sunghoon.jpg",
+      "name": "sunghoon",
+      "group": "enhypen"
+    },
+    {
+      "tileNumber": 35,
+      "isFlipped": false,
+      "image": "/PCimages/sunghoon.jpg",
+      "name": "sunghoon",
+      "group": "enhypen"
+    },
+    {
+      "tileNumber": 36,
+      "isFlipped": false,
+      "image": "/PCimages/momo.jpg",
+      "name": "momo",
+      "group": "twice"
+    },
+    {
+      "tileNumber": 37,
+      "isFlipped": false,
+      "image": "/PCimages/momo.jpg",
+      "name": "momo",
+      "group": "twice"
+    },
+    {
+      "tileNumber": 38,
+      "isFlipped": false,
+      "image": "/PCimages/jisoo.jpg",
+      "name": "jisoo",
+      "group": "blackpink"
+    },
+    {
+      "tileNumber": 39,
+      "isFlipped": false,
+      "image": "/PCimages/jisoo.jpg",
+      "name": "jisoo",
+      "group": "blackpink"
+    },
+    {
+      "tileNumber": 40,
+      "isFlipped": false,
+      "image": "/PCimages/jin.jpg",
+      "name": "jin",
+      "group": "bts"
+    },
+    {
+      "tileNumber": 41,
+      "isFlipped": false,
+      "image": "/PCimages/jin.jpg",
+      "name": "jin",
+      "group": "bts"
+    },
+    {
+      "tileNumber": 42,
+      "isFlipped": false,
+      "image": "/PCimages/haerin.jpg",
+      "name": "haerin",
+      "group": "newjeans"
+    },
+    {
+      "tileNumber": 43,
+      "isFlipped": false,
+      "image": "/PCimages/haerin.jpg",
+      "name": "jin",
+      "group": "newjeans"
+    },
+    {
+      "tileNumber": 44,
+      "isFlipped": false,
+      "image": "/PCimages/dahyun.jpg",
+      "name": "dahyun",
+      "group": "twice"
+    },
+    {
+      "tileNumber": 45,
+      "isFlipped": false,
+      "image": "/PCimages/dahyun.jpg",
+      "name": "dahyun",
+      "group": "twice"
+    },
+    {
+      "tileNumber": 46,
+      "isFlipped": false,
+      "image": "/PCimages/yuqi.jpg",
+      "name": "yuqi",
+      "group": "(g)i-dle"
+    },
+    {
+      "tileNumber": 47,
+      "isFlipped": false,
+      "image": "/PCimages/yuqi.jpg",
+      "name": "yuqi",
+      "group": "(g)i-dle"
+    },
+    {
+      "tileNumber": 48,
+      "isFlipped": false,
+      "image": "/PCimages/yuna.jpg",
+      "name": "yuna",
+      "group": "itzy"
+    },
+    {
+      "tileNumber": 49,
+      "isFlipped": false,
+      "image": "/PCimages/yuna.jpg",
+      "name": "yuna",
+      "group": "twice"
+    },
+    {
+      "tileNumber": 50,
+      "isFlipped": false,
+      "image": "/PCimages/chuu.jpg",
+      "name": "chuu",
+      "group": "..."
+    },
+    {
+      "tileNumber": 51,
+      "isFlipped": false,
+      "image": "/PCimages/chuu.jpg",
+      "name": "chuu",
+      "group": "..."
+    },
+    {
+      "tileNumber": 52,
+      "isFlipped": false,
+      "image": "/PCimages/wheein.jpg",
+      "name": "wheein",
+      "group": "mamamoo"
+    },
+    {
+      "tileNumber": 53,
+      "isFlipped": false,
+      "image": "/PCimages/wheein.jpg",
+      "name": "wheein",
+      "group": "mamamoo"
+    },
+    {
+      "tileNumber": 54,
+      "isFlipped": false,
+      "image": "/PCimages/joshua.jpg",
+      "name": "joshua",
+      "group": "seventeen"
+    },
+    {
+      "tileNumber": 55,
+      "isFlipped": false,
+      "image": "/PCimages/joshua.jpg",
+      "name": "joshua",
+      "group": "seventeen"
+    }
+  ]

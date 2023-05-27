@@ -1,0 +1,87 @@
+[
+    {
+      "url": "/shopImages/holder-pochacco.png",
+      "price": 10,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/holder-cinnamoroll.png",
+      "price": 10,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/holder-hellokitty.png",
+      "price": 10,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/holder-pompompurin.png",
+      "price": 10,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/holder-kuromi.png",
+      "price": 10,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/holder-mymelody.png",
+      "price": 10,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-blackribbon.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-blueribbons.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-flower.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-greenbear.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-pinkribbon.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-pompompurin.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-star.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-toastcat.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-plaid.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-white_blueribbon.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-orange_whiteribbon.png",
+      "price": 5,
+      "isPurchased": false
+    }
+  ]
