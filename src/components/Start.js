@@ -18,7 +18,6 @@ function Start(props) {
               setNTiles={props.setNTiles}
               setCurrentTab={props.setCurrentTab}
               setTileData={props.setTileData}
-              shuffle={props.shuffle}
               getSetOfnTiles={props.getSetOfnTiles}
             />
           );

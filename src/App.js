@@ -38,11 +38,11 @@ export default function App() {
   tileDataJSON.flat().forEach(function ({ name, group }) {
     nameToGroupData[name] = group;
   });
+  console.log("name group data:", nameToGroupData);
 
   function getSetOfnTiles(NTiles, fullTileData) {
-    let setOfNTiles = shuffle(fullTileData).flat();
-    let newSetOfNTiles = shuffle(setOfNTiles.slice(0, NTiles));
-    return newSetOfNTiles;
+    let newSetOfNTiles = shuffle(fullTileData).flat().slice(0, NTiles);
+    return shuffle(newSetOfNTiles);
   }
 
   function setDecoOnInfoCard(url, type) {
@@ -51,7 +51,8 @@ export default function App() {
   }
 
   function shuffle(array) {
-    let currentIndex = array.length,
+    let array2 = [...array];
+    let currentIndex = array2.length,
       randomIndex;
     // While there remain elements to shuffle.
     while (currentIndex !== 0) {
@@ -59,12 +60,14 @@ export default function App() {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
       // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
+      [array2[currentIndex], array2[randomIndex]] = [
+        array2[randomIndex],
+        array2[currentIndex],
       ];
     }
-    return array;
+    console.log("array", array);
+    console.log("array2", array2);
+    return array2;
   }
 
   function getComponentFromString(key) {
@@ -85,7 +88,6 @@ export default function App() {
         matchedPC={matchedPC}
         setMatchedPC={setMatchedPC}
         nameToGroupData={nameToGroupData}
-        shuffle={shuffle}
         // for Shop tab
         shopItemsState={shopItemsState}
         purchasedItems={purchasedItems}

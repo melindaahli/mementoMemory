@@ -13,6 +13,7 @@
 .App {
   font-family: "Gaegu", cursive;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .MemoryGame {
@@ -24,6 +25,8 @@ html,
 body {
   height: 100%;
   background-color: var(--dark-gray);
+  margin: 0;
+  padding: 0;
 }
 
 .GameBoard {
@@ -397,4 +400,25 @@ h3 {
 
 .alertMessage > p {
   width: 95%;
+}
+
+.book {
+  margin: 110px auto;
+  border: white solid 5px;
+  height: 450px;
+  width: 600px;
+}
+
+.bookPage {
+  width: 299.33333px;
+  height: 450px;
+  background-color: var(--light-pink);
+}
+
+.leftPage {
+  border-right: black dashed 1px;
+}
+
+.rightPage {
+  border-left: black dashed 1px;
 }

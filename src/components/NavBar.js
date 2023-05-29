@@ -11,7 +11,6 @@ function NavBar(props) {
   
   function getBackgroundColor(destination) {
     if (destination === props.currentTab) {
-      console.log(props.currentTab)
       return "white"
     } else {
       return "var(--light-green)"

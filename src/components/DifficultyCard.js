@@ -17,7 +17,7 @@ function DifficultyCard(props) {
         props.setNTiles(props.NTiles);
         changeTileMarginInCSS(props.NTiles);
         props.setTileData(
-        props.shuffle(props.getSetOfnTiles(props.NTiles, tileDataJSON))
+        props.getSetOfnTiles(props.NTiles, tileDataJSON)
         );
       }}
     >
