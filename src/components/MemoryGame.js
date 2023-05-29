@@ -4,26 +4,27 @@ import { useState, useEffect } from "react";
 import tileDataJSON from "../tileData.json";
 
 function MemoryGame(props) {
-  let [selectedTile1, setSelectedTile1] = useState("");
-  let [selectedTile2, setSelectedTile2] = useState("");
-  let [matchedTiles, setMatchedTiles] = useState([]);
   let [pageState, setPageState] = useState("game");
 
   useEffect(() => {
     function updateSelectedTiles() {
-      flip2Tile(Number(selectedTile1), Number(selectedTile2), isMatch);
-      setSelectedTile1("");
-      setSelectedTile2("");
+      flip2Tile(Number(props.selectedTile1), Number(props.selectedTile2), isMatch);
+      props.setSelectedTile1("");
+      props.setSelectedTile2("");
     }
 
-    if (matchedTiles.length != 0 && matchedTiles.length === props.tileData.length) {
+    if (
+      props.matchedTiles.length != 0 &&
+      props.matchedTiles.length === props.tileData.length
+    ) {
       setPageState("win");
     }
-    if (!selectedTile1 || !selectedTile2) {
+    if (!props.selectedTile1 || !props.selectedTile2) {
       return;
     }
 
-    let isMatch = checkPair(selectedTile1, selectedTile2);
+    let isMatch = checkPair(props.selectedTile1, props.selectedTile2);
+    console.log("matchedTiles.length", props.matchedTiles.length);
     let timeoutId;
 
     if (isMatch) {
@@ -36,15 +37,15 @@ function MemoryGame(props) {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [selectedTile1, selectedTile2]);
+  }, [props.selectedTile1, props.selectedTile2]);
 
   function selectTile(tileNumber) {
-    if (selectedTile1 === "") {
+    if (props.selectedTile1 === "") {
       flipTile(tileNumber, true);
-      setSelectedTile1(tileNumber.toString());
-    } else if (selectedTile2 === "") {
+      props.setSelectedTile1(tileNumber.toString());
+    } else if (props.selectedTile2 === "") {
       flipTile(tileNumber, true);
-      setSelectedTile2(tileNumber.toString());
+      props.setSelectedTile2(tileNumber.toString());
     }
   }
 
@@ -80,9 +81,9 @@ function MemoryGame(props) {
 
   function checkPair(tile1, tile2) {
     if (getImageFromTileNum(tile1) === getImageFromTileNum(tile2)) {
-      let newMatchedTiles = matchedTiles;
+      let newMatchedTiles = props.matchedTiles;
       newMatchedTiles.push(tile1, tile2);
-      setMatchedTiles(newMatchedTiles);
+      props.setMatchedTiles(newMatchedTiles);
       let newMatchedPC = props.matchedPC;
       newMatchedPC.unshift(getImageFromTileNum(tile1));
       props.setMatchedPC(newMatchedPC);
@@ -99,7 +100,7 @@ function MemoryGame(props) {
   function reset() {
     setPageState("game");
     props.setTileData(props.getSetOfnTiles(props.NTiles, tileDataJSON));
-    setMatchedTiles([]);
+    props.setMatchedTiles([]);
     props.setNumStars(props.numStars + props.NTiles);
   }
 

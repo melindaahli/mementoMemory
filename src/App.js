@@ -31,6 +31,9 @@ export default function App() {
   let [shopItemsState, setShopItemsState] = useState(shopItems);
   let [NTiles, setNTiles] = useState(0);
   let [tileData, setTileData] = useState(getSetOfnTiles(NTiles, tileDataJSON));
+  let [selectedTile1, setSelectedTile1] = useState("");
+  let [selectedTile2, setSelectedTile2] = useState("");
+  let [matchedTiles, setMatchedTiles] = useState([]);
   let [showAlert, setShowAlert] = useState("hidden");
   let [alertMessage, setAlertMessage] = useState("hi");
 
@@ -85,6 +88,12 @@ export default function App() {
         matchedPC={matchedPC}
         setMatchedPC={setMatchedPC}
         nameToGroupData={nameToGroupData}
+        matchedTiles={matchedTiles}
+        setMatchedTiles={setMatchedTiles}
+        selectedTile1={selectedTile1}
+        setSelectedTile1={setSelectedTile1}
+        selectedTile2={selectedTile2}
+        setSelectedTile2={setSelectedTile2}
         // for Shop tab
         shopItemsState={shopItemsState}
         purchasedItems={purchasedItems}
