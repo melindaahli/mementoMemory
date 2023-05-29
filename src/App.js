@@ -38,7 +38,6 @@ export default function App() {
   tileDataJSON.flat().forEach(function ({ name, group }) {
     nameToGroupData[name] = group;
   });
-  console.log("name group data:", nameToGroupData);
 
   function getSetOfnTiles(NTiles, fullTileData) {
     let newSetOfNTiles = shuffle(fullTileData).flat().slice(0, NTiles);
@@ -65,8 +64,6 @@ export default function App() {
         array2[currentIndex],
       ];
     }
-    console.log("array", array);
-    console.log("array2", array2);
     return array2;
   }
 

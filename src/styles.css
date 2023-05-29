@@ -402,8 +402,21 @@ h3 {
   width: 95%;
 }
 
+.CollectBook {
+  justify-content: center;
+}
+
+.CollectBook > button {
+  height: 40px;
+  width: 40px;
+  margin: 315px 10px 315px 10px;
+  display: inline;
+  border-radius: 5px;
+  border: none;
+}
+
 .book {
-  margin: 110px auto;
+  margin: 110px 0 110px 0;
   border: white solid 5px;
   height: 450px;
   width: 600px;
@@ -413,6 +426,7 @@ h3 {
   width: 299.33333px;
   height: 450px;
   background-color: var(--light-pink);
+  justify-content: space-evenly;
 }
 
 .leftPage {
@@ -421,4 +435,8 @@ h3 {
 
 .rightPage {
   border-left: black dashed 1px;
+}
+
+.bookPage > div {
+  margin: 10px;
 }
