@@ -8,7 +8,11 @@ function MemoryGame(props) {
 
   useEffect(() => {
     function updateSelectedTiles() {
-      flip2Tile(Number(props.selectedTile1), Number(props.selectedTile2), isMatch);
+      flip2Tile(
+        Number(props.selectedTile1),
+        Number(props.selectedTile2),
+        isMatch
+      );
       props.setSelectedTile1("");
       props.setSelectedTile2("");
     }
@@ -79,13 +83,33 @@ function MemoryGame(props) {
     return newTileDataState;
   }
 
+  function getValueFromObjUsingIndex(array, index, property) {
+    return array[index][property];
+  }
+
+  function getOddNumberFromPair(x, y) {
+    if (x % 2 === 0) {
+      return y;
+    } else {
+      return x;
+    }
+  }
+
   function checkPair(tile1, tile2) {
     if (getImageFromTileNum(tile1) === getImageFromTileNum(tile2)) {
       let newMatchedTiles = props.matchedTiles;
       newMatchedTiles.push(tile1, tile2);
       props.setMatchedTiles(newMatchedTiles);
       let newMatchedPC = props.matchedPC;
-      newMatchedPC.unshift(getImageFromTileNum(tile1));
+      // newMatchedPC.unshift(getImageFromTileNum(tile1));
+      newMatchedPC.unshift({
+        tileNumber: getValueFromObjUsingIndex(
+          props.tileData,
+          getOddNumberFromPair(tile1, tile2),
+          "tileNumber"
+        ),
+        image: getImageFromTileNum(tile1),
+      });
       props.setMatchedPC(newMatchedPC);
       return true;
     } else {
@@ -121,7 +145,7 @@ function MemoryGame(props) {
                 {props.tileData.map(({ image, isFlipped }, index) => {
                   return (
                     <Tile
-                      number={index}
+                      index={index}
                       key={index}
                       image={image}
                       isFlipped={isFlipped}

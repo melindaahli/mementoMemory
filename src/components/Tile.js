@@ -6,7 +6,7 @@ function Tile(props) {
         className="Tile"
         onClick={() => {
           if (props.isFlipped === false) {
-            props.selectTile(props.number);
+            props.selectTile(props.index);
           }
         }}
       >

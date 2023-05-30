@@ -37,6 +37,8 @@ export default function App() {
   let [showAlert, setShowAlert] = useState("hidden");
   let [alertMessage, setAlertMessage] = useState("hi");
 
+console.log(matchedPC)
+
   let nameToGroupData = {};
   tileDataJSON.flat().forEach(function ({ name, group }) {
     nameToGroupData[name] = group;

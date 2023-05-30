@@ -21,8 +21,8 @@
   padding: 0;
 }
 
-.win {
-  margin: 50px 0 0 0;
+.WinPage {
+  margin: 90px 0 0 0;
 }
 
 html,
@@ -421,9 +421,10 @@ h3 {
 
 .book {
   margin: 110px 0 110px 0;
-  border: white solid 5px;
+  border: white solid 8px;
   height: 450px;
   width: 600px;
+  border-radius: 5px;
 }
 
 .bookPage {
@@ -434,13 +435,17 @@ h3 {
 }
 
 .leftPage {
-  border-right: black dashed 1px;
+  border-right: var(--dark-gray) dashed 1px;
 }
 
 .rightPage {
-  border-left: black dashed 1px;
+  border-left: var(--dark-gray) dashed 1px;
 }
 
 .bookPage > div {
-  margin: 10px;
+  margin: 18px 10px 0 10px;
+}
+
+.bookPage > div > p {
+  margin: -1px 0;
 }
