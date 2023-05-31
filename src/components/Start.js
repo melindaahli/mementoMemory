@@ -1,4 +1,4 @@
-import DifficultyCard from "./DifficultyCard.js";
+import DifficultyBTN from "./DifficultyBTN.js";
 
 function Start(props) {
   let tileSetSizes = [16, 20, 24, 28];
@@ -12,7 +12,7 @@ function Start(props) {
       <div className="flex-container flex-center">
         {tileSetSizes.map((tileSetSize) => {
           return (
-            <DifficultyCard
+            <DifficultyBTN
               key={tileSetSize}
               NTiles={tileSetSize}
               setNTiles={props.setNTiles}

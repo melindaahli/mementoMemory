@@ -30,10 +30,6 @@ function CollectBook(props) {
     return arr.filter((e, i) => i % nth === nth - 1);
   }
 
-  function getNameFromImgURL(url) {
-    return url.substring(10, url.indexOf("."));
-  } // 10 is the length of "/PCimages/"
-
   useEffect(() => {
     function updateBook(oldEarnedCardsList) {
       let uniquePCs = [...new Set(props.matchedPC)];

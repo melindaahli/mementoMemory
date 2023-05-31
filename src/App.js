@@ -20,24 +20,26 @@ export default function App() {
   };
 
   let [currentTab, setCurrentTab] = useState("Start");
-  let [numStars, setNumStars] = useState(100);
+  let [numStars, setNumStars] = useState(0);
   let [matchedPC, setMatchedPC] = useState([]);
+
+  let [shopItemsState, setShopItemsState] = useState(shopItems);
   let [purchasedItems, setPurchasedItems] = useState([]);
   let [PCdeco, setPCdeco] = useState("");
   let [PCdecoType, setPCdecoType] = useState("");
+
   let [infoCardURL, setInfoCardURL] = useState("");
   let [infoCardName, setInfoCardName] = useState("name");
   let [infoCardGroupName, setInfoCardGroupName] = useState("group");
-  let [shopItemsState, setShopItemsState] = useState(shopItems);
+
   let [NTiles, setNTiles] = useState(0);
   let [tileData, setTileData] = useState(getSetOfnTiles(NTiles, tileDataJSON));
   let [selectedTile1, setSelectedTile1] = useState("");
   let [selectedTile2, setSelectedTile2] = useState("");
   let [matchedTiles, setMatchedTiles] = useState([]);
+
   let [showAlert, setShowAlert] = useState("hidden");
   let [alertMessage, setAlertMessage] = useState("hi");
-
-  // console.log("matchedPC", matchedPC)
 
   let nameToGroupData = {};
   tileDataJSON.flat().forEach(function ({ name, group }) {
@@ -96,11 +98,13 @@ export default function App() {
       <Component
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
-        // for Start tab
+        setShowAlert={setShowAlert}
+        setAlertMessage={setAlertMessage}
+        //mainly for Start tab
         NTiles={NTiles}
         setNTiles={setNTiles}
         getSetOfnTiles={getSetOfnTiles}
-        // for MemoryGame tab
+        //mainly for MemoryGame tab
         tileData={tileData}
         setTileData={setTileData}
         numStars={numStars}
@@ -114,23 +118,18 @@ export default function App() {
         setSelectedTile1={setSelectedTile1}
         selectedTile2={selectedTile2}
         setSelectedTile2={setSelectedTile2}
-        // for Shop tab
+        //mainly for Shop tab
         shopItemsState={shopItemsState}
         purchasedItems={purchasedItems}
         setPurchasedItems={setPurchasedItems}
         setShopItemsState={setShopItemsState}
-        setShowAlert={setShowAlert}
-        setAlertMessage={setAlertMessage}
-        // for Deco tab
+        //mainly for Deco tab
         PCdeco={PCdeco}
         PCdecoType={PCdecoType}
         setDecoOnInfoCard={setDecoOnInfoCard}
         infoCardURL={infoCardURL}
-        // setInfoCardURL={setInfoCardURL}
         infoCardName={infoCardName}
-        // setInfoCardName={setInfoCardName}
         infoCardGroupName={infoCardGroupName}
-        // setInfoCardGroupName={setInfoCardGroupName}
         setInfoCard={setInfoCard}
       />
     );

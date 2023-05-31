@@ -2,16 +2,6 @@ import PCBar from "./PCBar";
 import PurchasedBar from "./PurchasedBar";
 
 function Deco(props) {
-  
-
-  // function setInfoCard(url) {
-  //   let name = getNameFromImgURL(url);
-  //   let group = getGroupFromName(name);
-  //   props.setInfoCardURL(url);
-  //   props.setInfoCardName(name);
-  //   props.setInfoCardGroupName(group);
-  // }
-
   return (
     <div className="Deco flex-container flex-start">
       <PCBar
@@ -20,6 +10,7 @@ function Deco(props) {
         setInfoCard={props.setInfoCard}
         nameToGroupData={props.nameToGroupData}
         currentTab={props.currentTab}
+        setCurrentTab={props.setCurrentTab}
       />
       <div className="flex-container flex-center">
         <div id="cardInfo">
@@ -48,6 +39,7 @@ function Deco(props) {
       <PurchasedBar
         purchasedItems={props.purchasedItems}
         setDecoOnInfoCard={props.setDecoOnInfoCard}
+        setCurrentTab={props.setCurrentTab}
       />
     </div>
   );
