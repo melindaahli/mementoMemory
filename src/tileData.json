@@ -478,5 +478,37 @@
       "name": "seoho",
       "group": "oneus"
     }
+  ],
+  [
+    {
+      "tileNumber": 60,
+      "isFlipped": false,
+      "image": "/PCimages/irene.jpg",
+      "name": "irene",
+      "group": "red velvet"
+    },
+    {
+      "tileNumber": 61,
+      "isFlipped": false,
+      "image": "/PCimages/irene.jpg",
+      "name": "irene",
+      "group": "red velvet"
+    }
+  ],
+  [
+    {
+      "tileNumber": 62,
+      "isFlipped": false,
+      "image": "/PCimages/yeji.jpg",
+      "name": "yeji",
+      "group": "itzy"
+    },
+    {
+      "tileNumber": 63,
+      "isFlipped": false,
+      "image": "/PCimages/yeji.jpg",
+      "name": "yeji",
+      "group": "itzy"
+    }
   ]
 ]
