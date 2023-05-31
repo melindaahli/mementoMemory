@@ -6,7 +6,7 @@ function Start(props) {
   return (
     <div className="Start">
       <p className="title">Memento</p>
-      <p className="text instructions">match cards to win!</p>
+      <p className="text instructions">match, collect, & decorate your cards!</p>
       <br /><br /><br />
       <p className="text">choose the number of cards:</p>
       <div className="flex-container flex-center">

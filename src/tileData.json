@@ -446,5 +446,37 @@
       "name": "joshua",
       "group": "seventeen"
     }
+  ],
+  [
+    {
+      "tileNumber": 56,
+      "isFlipped": false,
+      "image": "/PCimages/bomin.jpg",
+      "name": "bomin",
+      "group": "golden child"
+    },
+    {
+      "tileNumber": 57,
+      "isFlipped": false,
+      "image": "/PCimages/bomin.jpg",
+      "name": "bomin",
+      "group": "golden child"
+    }
+  ],
+  [
+    {
+      "tileNumber": 58,
+      "isFlipped": false,
+      "image": "/PCimages/seoho.jpg",
+      "name": "seoho",
+      "group": "oneus"
+    },
+    {
+      "tileNumber": 59,
+      "isFlipped": false,
+      "image": "/PCimages/seoho.jpg",
+      "name": "seoho",
+      "group": "oneus"
+    }
   ]
 ]
