@@ -28,7 +28,6 @@ function MemoryGame(props) {
     }
 
     let isMatch = checkPair(props.selectedTile1, props.selectedTile2);
-    console.log("matchedTiles.length", props.matchedTiles.length);
     let timeoutId;
 
     if (isMatch) {
@@ -95,6 +94,10 @@ function MemoryGame(props) {
     }
   }
 
+  function getNameFromImgURL(url) {
+    return url.substring(10, url.indexOf("."));
+  } // 10 is the length of "/PCimages/"
+
   function checkPair(tile1, tile2) {
     if (getImageFromTileNum(tile1) === getImageFromTileNum(tile2)) {
       let newMatchedTiles = props.matchedTiles;
@@ -102,13 +105,17 @@ function MemoryGame(props) {
       props.setMatchedTiles(newMatchedTiles);
       let newMatchedPC = props.matchedPC;
       // newMatchedPC.unshift(getImageFromTileNum(tile1));
+      let pairOfTileNumbers = [
+        getValueFromObjUsingIndex(props.tileData, tile1, "tileNumber"),
+        getValueFromObjUsingIndex(props.tileData, tile2, "tileNumber"),
+      ];
       newMatchedPC.unshift({
-        tileNumber: getValueFromObjUsingIndex(
-          props.tileData,
-          getOddNumberFromPair(tile1, tile2),
-          "tileNumber"
+        tileNumber: getOddNumberFromPair(
+          pairOfTileNumbers[0],
+          pairOfTileNumbers[1]
         ),
         image: getImageFromTileNum(tile1),
+        name: getNameFromImgURL(props.tileData[tile1]["image"]),
       });
       props.setMatchedPC(newMatchedPC);
       return true;

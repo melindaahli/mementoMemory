@@ -20,7 +20,7 @@ export default function App() {
   };
 
   let [currentTab, setCurrentTab] = useState("Start");
-  let [numStars, setNumStars] = useState(0);
+  let [numStars, setNumStars] = useState(100);
   let [matchedPC, setMatchedPC] = useState([]);
   let [purchasedItems, setPurchasedItems] = useState([]);
   let [PCdeco, setPCdeco] = useState("");
@@ -37,7 +37,7 @@ export default function App() {
   let [showAlert, setShowAlert] = useState("hidden");
   let [alertMessage, setAlertMessage] = useState("hi");
 
-console.log(matchedPC)
+  // console.log("matchedPC", matchedPC)
 
   let nameToGroupData = {};
   tileDataJSON.flat().forEach(function ({ name, group }) {
@@ -52,6 +52,24 @@ console.log(matchedPC)
   function setDecoOnInfoCard(url, type) {
     setPCdeco(url);
     setPCdecoType(type);
+  }
+
+  function getNameFromImgURL(url) {
+    return url.substring(10, url.indexOf("."));
+  } // 10 is the length of "/PCimages/"
+
+  function getGroupFromName(name) {
+    return nameToGroupData[name];
+  }
+
+  function setInfoCard(url) {
+    let name = getNameFromImgURL(url);
+    console.log("name", name);
+    let group = getGroupFromName(name);
+    console.log("group", group);
+    setInfoCardURL(url);
+    setInfoCardName(name);
+    setInfoCardGroupName(group);
   }
 
   function shuffle(array) {
@@ -103,16 +121,17 @@ console.log(matchedPC)
         setShopItemsState={setShopItemsState}
         setShowAlert={setShowAlert}
         setAlertMessage={setAlertMessage}
-        // for Info tab
+        // for Deco tab
         PCdeco={PCdeco}
         PCdecoType={PCdecoType}
         setDecoOnInfoCard={setDecoOnInfoCard}
         infoCardURL={infoCardURL}
-        setInfoCardURL={setInfoCardURL}
+        // setInfoCardURL={setInfoCardURL}
         infoCardName={infoCardName}
-        setInfoCardName={setInfoCardName}
+        // setInfoCardName={setInfoCardName}
         infoCardGroupName={infoCardGroupName}
-        setInfoCardGroupName={setInfoCardGroupName}
+        // setInfoCardGroupName={setInfoCardGroupName}
+        setInfoCard={setInfoCard}
       />
     );
   }

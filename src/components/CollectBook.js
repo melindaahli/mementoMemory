@@ -6,46 +6,13 @@ function CollectBook(props) {
   let cardList = every_nth(tileDataJSON.flat(), 2);
   let blankCardList = getBlankCardList();
   let [earnedCardsList, setEarnedCardsList] = useState(blankCardList);
-  // console.log("cardList:", cardList);
   let [startIndex, setStartIndex] = useState(0);
-  // let startIndex = 0;
   let [leftPageCardList, setLeftPageCardList] = useState(
     earnedCardsList.slice(startIndex, startIndex + 4)
   );
-  // let leftPageCardList = cardList.slice(startIndex, startIndex + 4);
-  console.log("leftPageCardList:", leftPageCardList);
   let [rightPageCardList, setRightPageCardList] = useState(
     earnedCardsList.slice(startIndex + 4, startIndex + 4 + 4)
   );
-  // let rightPageCardList = cardList.slice(startIndex + 4, startIndex + 4 + 4);
-  console.log("rightPageCardList:", rightPageCardList);
-
-  function getNameFromImgURL(url) {
-    return url.substring(10, url.indexOf("."));
-  } // 10 is the length of "/PCimages/"
-
-  // useEffect(() => {
-  //   function updateBook(oldEarnedCardsList) {
-  //     let newEarnedCardsList = [];
-  //     let uniquePCs = [...new Set(props.matchedPC)];
-  //      console.log(uniquePCs)
-  //     oldEarnedCardsList.forEach((card) => {
-  //       uniquePCs.forEach((PC) => {
-  //         if (card["tileNumber"] === PC["tileNumber"]) {
-  //           newEarnedCardsList.push({
-  //             ...card,
-  //             image: PC["image"],
-  //             name: getNameFromImgURL(PC["image"])
-  //           });
-  //         } else {
-  //           newEarnedCardsList.push(card);
-  //         }
-  //       });
-  //     });
-  //     setEarnedCardsList(newEarnedCardsList);
-  //   }
-  //   updateBook(earnedCardsList);
-  // }, [props.matchedPC]);
 
   function getBlankCardList() {
     let blankCardList = [];
@@ -56,7 +23,6 @@ function CollectBook(props) {
         name: "???",
       });
     });
-    console.log("blankCardList", blankCardList);
     return blankCardList;
   }
 
@@ -64,16 +30,34 @@ function CollectBook(props) {
     return arr.filter((e, i) => i % nth === nth - 1);
   }
 
+  function getNameFromImgURL(url) {
+    return url.substring(10, url.indexOf("."));
+  } // 10 is the length of "/PCimages/"
+
+  useEffect(() => {
+    function updateBook(oldEarnedCardsList) {
+      let uniquePCs = [...new Set(props.matchedPC)];
+      let newEarnedCardsList = [];
+      newEarnedCardsList = oldEarnedCardsList.map((item) => {
+        const item2 = uniquePCs.find((i2) => i2.tileNumber === item.tileNumber);
+        console.log("item2", item2);
+        return item2 ? { ...item, ...item2 } : item;
+      });
+      setEarnedCardsList(newEarnedCardsList);
+    }
+    updateBook(earnedCardsList);
+  }, [props.matchedPC]);
+
   useEffect(() => {
     function flipBook() {
-      console.log("in flipbook", earnedCardsList);
+      // console.log("in flipbook", earnedCardsList);
       setLeftPageCardList(earnedCardsList.slice(startIndex, startIndex + 4));
       setRightPageCardList(
         earnedCardsList.slice(startIndex + 4, startIndex + 4 + 4)
       );
     }
     flipBook();
-  }, [startIndex]);
+  }, [startIndex, earnedCardsList]);
 
   function getButtonVisibility(LeftOrRight, index) {
     if (LeftOrRight === "left") {
@@ -109,7 +93,13 @@ function CollectBook(props) {
           {leftPageCardList.map(({ image, name }, index) => {
             return (
               <div>
-                <PC key={index} imgURL={image} />
+                <PC
+                  setInfoCard={props.setInfoCard}
+                  currentTab={props.currentTab}
+                  setCurrentTab={props.setCurrentTab}
+                  key={index}
+                  imgURL={image}
+                />
                 <p>{name}</p>
               </div>
             );
@@ -122,7 +112,13 @@ function CollectBook(props) {
           {rightPageCardList.map(({ image, name }, index) => {
             return (
               <div>
-                <PC key={index} imgURL={image} />
+                <PC
+                  setInfoCard={props.setInfoCard}
+                  currentTab={props.currentTab}
+                  setCurrentTab={props.setCurrentTab}
+                  key={index}
+                  imgURL={image}
+                />
                 <p>{name}</p>
               </div>
             );
