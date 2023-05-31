@@ -23,6 +23,7 @@ function MemoryGame(props) {
     ) {
       setPageState("win");
     }
+
     if (!props.selectedTile1 || !props.selectedTile2) {
       return;
     }
@@ -43,6 +44,7 @@ function MemoryGame(props) {
   }, [props.selectedTile1, props.selectedTile2]);
 
   function selectTile(tileNumber) {
+    //tileNumber (int) is tile's index
     if (props.selectedTile1 === "") {
       flipTile(tileNumber, true);
       props.setSelectedTile1(tileNumber.toString());
@@ -104,7 +106,6 @@ function MemoryGame(props) {
       newMatchedTiles.push(tile1, tile2);
       props.setMatchedTiles(newMatchedTiles);
       let newMatchedPC = props.matchedPC;
-      // newMatchedPC.unshift(getImageFromTileNum(tile1));
       let pairOfTileNumbers = [
         getValueFromObjUsingIndex(props.tileData, tile1, "tileNumber"),
         getValueFromObjUsingIndex(props.tileData, tile2, "tileNumber"),
@@ -125,6 +126,7 @@ function MemoryGame(props) {
   }
 
   function getImageFromTileNum(tileNumber) {
+    // tileNumber (str)
     return props.tileData[Number(tileNumber)]?.image;
   }
 

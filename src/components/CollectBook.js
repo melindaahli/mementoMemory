@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import PC from "./PC.js";
 
 function CollectBook(props) {
+  // obj array of all possible cards: image url, name, group, tileNumber (odd), (isFlipped)
   let cardList = every_nth(tileDataJSON.flat(), 2);
-  let blankCardList = getBlankCardList();
-  let [earnedCardsList, setEarnedCardsList] = useState(blankCardList);
+
+  let [earnedCardsList, setEarnedCardsList] = useState(getBlankCardList());
+
   let [startIndex, setStartIndex] = useState(0);
   let [leftPageCardList, setLeftPageCardList] = useState(
     earnedCardsList.slice(startIndex, startIndex + 4)
@@ -13,8 +15,13 @@ function CollectBook(props) {
   let [rightPageCardList, setRightPageCardList] = useState(
     earnedCardsList.slice(startIndex + 4, startIndex + 4 + 4)
   );
-  console.log("startindex", startIndex);
-  console.log("cardlist.length", cardList.length);
+
+  // returns obj array of every other object in initial array
+  function every_nth(arr, nth) {
+    return arr.filter((e, i) => i % nth === nth - 1);
+  }
+
+  // returns obj array of all possivle cards: image url -> placeholder img url, name -> ???, group, tileNumber, (isFlipped)
   function getBlankCardList() {
     let blankCardList = [];
     cardList.forEach((cardObj) => {
@@ -27,11 +34,8 @@ function CollectBook(props) {
     return blankCardList;
   }
 
-  function every_nth(arr, nth) {
-    return arr.filter((e, i) => i % nth === nth - 1);
-  }
-
   useEffect(() => {
+    // updates the img url and name in earnedCardsList based on matchedPC array
     function updateBook(oldEarnedCardsList) {
       let uniquePCs = [...new Set(props.matchedPC)];
       let newEarnedCardsList = [];
@@ -45,6 +49,7 @@ function CollectBook(props) {
   }, [props.matchedPC]);
 
   useEffect(() => {
+    // changes imgs
     function flipBook() {
       setLeftPageCardList(earnedCardsList.slice(startIndex, startIndex + 4));
       setRightPageCardList(

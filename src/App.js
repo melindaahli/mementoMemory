@@ -5,20 +5,12 @@ import Start from "./components/Start.js";
 import Shop from "./components/Shop.js";
 import Deco from "./components/Deco.js";
 import MemoryGame from "./components/MemoryGame.js";
-import tileDataJSON from "./tileData.json";
-import shopItems from "./shopItems.json";
 import Alert from "./components/Alert.js";
 import CollectBook from "./components/CollectBook.js";
+import tileDataJSON from "./tileData.json";
+import shopItems from "./shopItems.json";
 
 export default function App() {
-  let componentList = {
-    Start: Start,
-    MemoryGame: MemoryGame,
-    Shop: Shop,
-    Deco: Deco,
-    CollectBook: CollectBook,
-  };
-
   let [currentTab, setCurrentTab] = useState("Start");
   let [numStars, setNumStars] = useState(0);
   let [matchedPC, setMatchedPC] = useState([]);
@@ -41,20 +33,15 @@ export default function App() {
   let [showAlert, setShowAlert] = useState("hidden");
   let [alertMessage, setAlertMessage] = useState("hi");
 
-  let nameToGroupData = {};
-  tileDataJSON.flat().forEach(function ({ name, group }) {
-    nameToGroupData[name] = group;
-  });
-
   function getSetOfnTiles(NTiles, fullTileData) {
     let newSetOfNTiles = shuffle(fullTileData).flat().slice(0, NTiles);
     return shuffle(newSetOfNTiles);
   }
 
-  function setDecoOnInfoCard(url, type) {
-    setPCdeco(url);
-    setPCdecoType(type);
-  }
+  let nameToGroupData = {};
+  tileDataJSON.flat().forEach(function ({ name, group }) {
+    nameToGroupData[name] = group;
+  });
 
   function getNameFromImgURL(url) {
     return url.substring(10, url.indexOf("."));
@@ -64,11 +51,14 @@ export default function App() {
     return nameToGroupData[name];
   }
 
+  function setDecoOnInfoCard(url, type) {
+    setPCdeco(url);
+    setPCdecoType(type);
+  }
+
   function setInfoCard(url) {
     let name = getNameFromImgURL(url);
-    console.log("name", name);
     let group = getGroupFromName(name);
-    console.log("group", group);
     setInfoCardURL(url);
     setInfoCardName(name);
     setInfoCardGroupName(group);
@@ -92,23 +82,34 @@ export default function App() {
     return array2;
   }
 
+  let componentList = {
+    Start: Start,
+    MemoryGame: MemoryGame,
+    CollectBook: CollectBook,
+    Shop: Shop,
+    Deco: Deco,
+  };
+
   function getComponentFromString(key) {
     let Component = componentList[key];
     return (
       <Component
+        // currentTab
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
+        // Alert
         setShowAlert={setShowAlert}
         setAlertMessage={setAlertMessage}
-        //mainly for Start tab
+        // stars
+        numStars={numStars}
+        setNumStars={setNumStars}
+        // NTiles
         NTiles={NTiles}
         setNTiles={setNTiles}
         getSetOfnTiles={getSetOfnTiles}
-        //mainly for MemoryGame tab
+        // tile data
         tileData={tileData}
         setTileData={setTileData}
-        numStars={numStars}
-        setNumStars={setNumStars}
         matchedPC={matchedPC}
         setMatchedPC={setMatchedPC}
         nameToGroupData={nameToGroupData}
@@ -118,7 +119,7 @@ export default function App() {
         setSelectedTile1={setSelectedTile1}
         selectedTile2={selectedTile2}
         setSelectedTile2={setSelectedTile2}
-        //mainly for Shop tab
+        // shop items & purchased items
         shopItemsState={shopItemsState}
         purchasedItems={purchasedItems}
         setPurchasedItems={setPurchasedItems}
