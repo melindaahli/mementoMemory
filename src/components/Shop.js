@@ -61,6 +61,8 @@ function Shop(props) {
         purchasedItems={props.purchasedItems}
         setPCdeco={props.setPCdeco}
         setPCdecoType={props.setPCdecoType}
+        setDecoOnInfoCard={props.setDecoOnInfoCard}
+        setCurrentTab={props.setCurrentTab}
       />
     </div>
   );

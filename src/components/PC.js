@@ -1,23 +1,29 @@
 function PC(props) {
-  let isCurrentTabInfo = false;
-
-  if (props.currentTab === "Info") {
-    isCurrentTabInfo = true;
-  }
-  console.log("is tab info", isCurrentTabInfo);
   function onClick() {
-    if (isCurrentTabInfo) {
-      console.log("clicked!");
+    if (isCurrentTabDesired("Deco") || isCurrentTabDesired("CollectBook")) {
       props.setInfoCard(props.imgURL);
+      props.setCurrentTab("Deco");
     }
   }
 
-  console.log(props.imgURL);
+  function isCurrentTabDesired(desiredTab) {
+    if (props.currentTab === desiredTab) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <div>
       <img
         alt="photocard"
-        className="PC"
+        className={
+          "PC " +
+          (isCurrentTabDesired("Deco") || isCurrentTabDesired("CollectBook")
+            ? "pointer-on-hover "
+            : "")
+        }
         src={props.imgURL}
         onClick={onClick}
       />

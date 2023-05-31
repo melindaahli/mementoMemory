@@ -50,7 +50,7 @@
       "isPurchased": false
     },
     {
-      "url": "/shopImages/cover-pinkribbon.png",
+      "url": "/shopImages/cover-pinkribbon1.png",
       "price": 5,
       "isPurchased": false
     },
@@ -81,6 +81,11 @@
     },
     {
       "url": "/shopImages/cover-orange_whiteribbon.png",
+      "price": 5,
+      "isPurchased": false
+    },
+    {
+      "url": "/shopImages/cover-pinkribbon2.png",
       "price": 5,
       "isPurchased": false
     }

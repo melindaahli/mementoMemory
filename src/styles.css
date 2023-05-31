@@ -13,6 +13,7 @@
 .App {
   font-family: "Gaegu", cursive;
   text-align: center;
+  overflow-x: hidden;
 }
 
 .MemoryGame {
@@ -20,10 +21,16 @@
   padding: 0;
 }
 
+.WinPage {
+  margin: 90px 0 0 0;
+}
+
 html,
 body {
   height: 100%;
   background-color: var(--dark-gray);
+  margin: 0;
+  padding: 0;
 }
 
 .GameBoard {
@@ -73,7 +80,7 @@ body {
 
 .PCdeco.cover {
   position: absolute;
-  top: 22.1%;
+  top: 21%;
   width: 200px;
   border-radius: 5px;
   z-index: 1;
@@ -174,6 +181,7 @@ button {
 }
 
 .enlargedPC {
+  margin: 10px 0 25px 0;
   width: 200px;
   height: 300px;
   border-radius: 10px;
@@ -304,7 +312,7 @@ h3 {
   margin: 20px auto;
   justify-content: space-between;
   padding: 0;
-  width: 904px;
+  width: 904.5px;
   height: 100%;
   grid-area: NavBar;
 }
@@ -372,7 +380,7 @@ h3 {
   font-weight: bold;
 }
 
-.closeAlert:hover {
+.pointer-on-hover:hover {
   cursor: pointer;
 }
 
@@ -397,4 +405,48 @@ h3 {
 
 .alertMessage > p {
   width: 95%;
+}
+
+.CollectBook {
+  justify-content: center;
+}
+
+.CollectBook > button {
+  height: 40px;
+  width: 40px;
+  margin: 315px 10px 315px 10px;
+  display: inline;
+  border-radius: 5px;
+  border: none;
+}
+
+.book {
+  margin: 110px 0 110px 0;
+  border: white solid 8px;
+  height: 450px;
+  width: 600px;
+  border-radius: 5px;
+}
+
+.bookPage {
+  width: 299.33333px;
+  height: 450px;
+  background-color: var(--light-pink);
+  justify-content: space-evenly;
+}
+
+.leftPage {
+  border-right: var(--dark-gray) dashed 1px;
+}
+
+.rightPage {
+  border-left: var(--dark-gray) dashed 1px;
+}
+
+.bookPage > div {
+  margin: 18px 10px 0 10px;
+}
+
+.bookPage > div > p {
+  margin: -1px 0;
 }

@@ -26,8 +26,7 @@ function ShopItem(props) {
             props.imgURL,
             props.getItemTypeFromURL(props.imgURL)
           );
-          console.log(props.PCdecoType, "shop Item");
-          props.setCurrentTab("Info");
+          props.setCurrentTab("Deco");
         }}
       >
         apply

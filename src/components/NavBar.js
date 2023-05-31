@@ -1,5 +1,4 @@
 function NavBar(props) {
-
   function whenNavBarBTNclicked(destination) {
     if (props.NTiles === 0) {
       props.setShowAlert("visible");
@@ -8,18 +7,17 @@ function NavBar(props) {
       props.setCurrentTab(destination);
     }
   }
-  
+
   function getBackgroundColor(destination) {
     if (destination === props.currentTab) {
-      console.log(props.currentTab)
-      return "white"
+      return "white";
     } else {
-      return "var(--light-green)"
+      return "var(--light-green)";
     }
   }
 
   return (
-    <div className="NavBar flex-container" >
+    <div className="NavBar flex-container">
       <button
         className="NavBarBTN"
         style={{ backgroundColor: getBackgroundColor("Start") }}
@@ -36,6 +34,13 @@ function NavBar(props) {
       </button>
       <button
         className="NavBarBTN"
+        style={{ backgroundColor: getBackgroundColor("CollectBook") }}
+        onClick={() => whenNavBarBTNclicked("CollectBook")}
+      >
+        book
+      </button>
+      <button
+        className="NavBarBTN"
         style={{ backgroundColor: getBackgroundColor("Shop") }}
         onClick={() => whenNavBarBTNclicked("Shop")}
       >
@@ -47,13 +52,6 @@ function NavBar(props) {
         onClick={() => whenNavBarBTNclicked("Deco")}
       >
         deco
-      </button>
-      <button
-        className="NavBarBTN"
-        style={{ backgroundColor: getBackgroundColor("CollectBook") }}
-        onClick={() => whenNavBarBTNclicked("CollectBook")}
-      >
-        book
       </button>
     </div>
   );

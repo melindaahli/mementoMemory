@@ -22,15 +22,22 @@ export default function App() {
   let [currentTab, setCurrentTab] = useState("Start");
   let [numStars, setNumStars] = useState(0);
   let [matchedPC, setMatchedPC] = useState([]);
+
+  let [shopItemsState, setShopItemsState] = useState(shopItems);
   let [purchasedItems, setPurchasedItems] = useState([]);
   let [PCdeco, setPCdeco] = useState("");
   let [PCdecoType, setPCdecoType] = useState("");
+
   let [infoCardURL, setInfoCardURL] = useState("");
   let [infoCardName, setInfoCardName] = useState("name");
   let [infoCardGroupName, setInfoCardGroupName] = useState("group");
-  let [shopItemsState, setShopItemsState] = useState(shopItems);
+
   let [NTiles, setNTiles] = useState(0);
   let [tileData, setTileData] = useState(getSetOfnTiles(NTiles, tileDataJSON));
+  let [selectedTile1, setSelectedTile1] = useState("");
+  let [selectedTile2, setSelectedTile2] = useState("");
+  let [matchedTiles, setMatchedTiles] = useState([]);
+
   let [showAlert, setShowAlert] = useState("hidden");
   let [alertMessage, setAlertMessage] = useState("hi");
 
@@ -40,9 +47,8 @@ export default function App() {
   });
 
   function getSetOfnTiles(NTiles, fullTileData) {
-    let setOfNTiles = shuffle(fullTileData).flat();
-    let newSetOfNTiles = setOfNTiles.slice(0, NTiles);
-    return newSetOfNTiles;
+    let newSetOfNTiles = shuffle(fullTileData).flat().slice(0, NTiles);
+    return shuffle(newSetOfNTiles);
   }
 
   function setDecoOnInfoCard(url, type) {
@@ -50,8 +56,27 @@ export default function App() {
     setPCdecoType(type);
   }
 
+  function getNameFromImgURL(url) {
+    return url.substring(10, url.indexOf("."));
+  } // 10 is the length of "/PCimages/"
+
+  function getGroupFromName(name) {
+    return nameToGroupData[name];
+  }
+
+  function setInfoCard(url) {
+    let name = getNameFromImgURL(url);
+    console.log("name", name);
+    let group = getGroupFromName(name);
+    console.log("group", group);
+    setInfoCardURL(url);
+    setInfoCardName(name);
+    setInfoCardGroupName(group);
+  }
+
   function shuffle(array) {
-    let currentIndex = array.length,
+    let array2 = [...array];
+    let currentIndex = array2.length,
       randomIndex;
     // While there remain elements to shuffle.
     while (currentIndex !== 0) {
@@ -59,12 +84,12 @@ export default function App() {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
       // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
+      [array2[currentIndex], array2[randomIndex]] = [
+        array2[randomIndex],
+        array2[currentIndex],
       ];
     }
-    return array;
+    return array2;
   }
 
   function getComponentFromString(key) {
@@ -73,11 +98,13 @@ export default function App() {
       <Component
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
-        // for Start tab
+        setShowAlert={setShowAlert}
+        setAlertMessage={setAlertMessage}
+        //mainly for Start tab
         NTiles={NTiles}
         setNTiles={setNTiles}
         getSetOfnTiles={getSetOfnTiles}
-        // for MemoryGame tab
+        //mainly for MemoryGame tab
         tileData={tileData}
         setTileData={setTileData}
         numStars={numStars}
@@ -85,31 +112,28 @@ export default function App() {
         matchedPC={matchedPC}
         setMatchedPC={setMatchedPC}
         nameToGroupData={nameToGroupData}
-        shuffle={shuffle}
-        // for Shop tab
+        matchedTiles={matchedTiles}
+        setMatchedTiles={setMatchedTiles}
+        selectedTile1={selectedTile1}
+        setSelectedTile1={setSelectedTile1}
+        selectedTile2={selectedTile2}
+        setSelectedTile2={setSelectedTile2}
+        //mainly for Shop tab
         shopItemsState={shopItemsState}
         purchasedItems={purchasedItems}
         setPurchasedItems={setPurchasedItems}
         setShopItemsState={setShopItemsState}
-        setShowAlert={setShowAlert}
-        setAlertMessage={setAlertMessage}
-        // for Info tab
+        //mainly for Deco tab
         PCdeco={PCdeco}
         PCdecoType={PCdecoType}
         setDecoOnInfoCard={setDecoOnInfoCard}
         infoCardURL={infoCardURL}
-        setInfoCardURL={setInfoCardURL}
         infoCardName={infoCardName}
-        setInfoCardName={setInfoCardName}
         infoCardGroupName={infoCardGroupName}
-        setInfoCardGroupName={setInfoCardGroupName}
+        setInfoCard={setInfoCard}
       />
     );
   }
-
-  console.log(showAlert);
-  console.log(alertMessage);
-  console.log(NTiles);
 
   return (
     <div className="App">

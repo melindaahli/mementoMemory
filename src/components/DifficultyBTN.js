@@ -1,6 +1,6 @@
 import tileDataJSON from "../tileData.json";
 
-function DifficultyCard(props) {
+function DifficultyBTN(props) {
   function changeTileMarginInCSS(NTiles) {
     if (NTiles <= 20) {
       root.style.setProperty("--tile-margin", "15px 18px 15px 18px");
@@ -17,7 +17,7 @@ function DifficultyCard(props) {
         props.setNTiles(props.NTiles);
         changeTileMarginInCSS(props.NTiles);
         props.setTileData(
-        props.shuffle(props.getSetOfnTiles(props.NTiles, tileDataJSON))
+        props.getSetOfnTiles(props.NTiles, tileDataJSON)
         );
       }}
     >
@@ -26,4 +26,4 @@ function DifficultyCard(props) {
   );
 }
 
-export default DifficultyCard;
+export default DifficultyBTN;

@@ -4,7 +4,7 @@ function Alert(props) {
       <div className="alertMessage">
         <p>{props.alertMessage}</p>
       </div>
-      <div className="closeAlert" onClick={() => props.setShowAlert("hidden")}>
+      <div className="closeAlert pointer-on-hover" onClick={() => props.setShowAlert("hidden")}>
         <p>okay!</p>
       </div>
     </div>

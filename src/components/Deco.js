@@ -1,31 +1,16 @@
 import PCBar from "./PCBar";
 import PurchasedBar from "./PurchasedBar";
 
-function Info(props) {
-  function getNameFromImgURL(url) {
-    return url.substring(10, url.indexOf("."));
-  } // 10 is the length of "/PCimages/"
-
-  function getGroupFromName(name) {
-    return props.nameToGroupData[name];
-  }
-
-  function setInfoCard(url) {
-    let name = getNameFromImgURL(url);
-    let group = getGroupFromName(name);
-    props.setInfoCardURL(url);
-    props.setInfoCardName(name);
-    props.setInfoCardGroupName(group);
-  }
-
+function Deco(props) {
   return (
     <div className="Deco flex-container flex-start">
       <PCBar
         matchedPC={props.matchedPC}
         setMatchedPC={props.setMatchedPC}
-        setInfoCard={setInfoCard}
+        setInfoCard={props.setInfoCard}
         nameToGroupData={props.nameToGroupData}
         currentTab={props.currentTab}
+        setCurrentTab={props.setCurrentTab}
       />
       <div className="flex-container flex-center">
         <div id="cardInfo">
@@ -54,9 +39,10 @@ function Info(props) {
       <PurchasedBar
         purchasedItems={props.purchasedItems}
         setDecoOnInfoCard={props.setDecoOnInfoCard}
+        setCurrentTab={props.setCurrentTab}
       />
     </div>
   );
 }
 
-export default Info;
+export default Deco;

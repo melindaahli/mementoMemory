@@ -2,18 +2,17 @@ function Tile(props) {
   return (
     <div>
       <button
-        /* disabled={props.isFlipped} */
         className="Tile"
         onClick={() => {
           if (props.isFlipped === false) {
-            props.selectTile(props.number);
+            props.selectTile(props.index);
           }
         }}
       >
         <div className="tileContent">
           <img
             className="tile"
-            alt={props.number}
+            alt={props.index}
             src={
               props.isFlipped
                 ? props.image
