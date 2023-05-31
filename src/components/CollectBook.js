@@ -13,7 +13,8 @@ function CollectBook(props) {
   let [rightPageCardList, setRightPageCardList] = useState(
     earnedCardsList.slice(startIndex + 4, startIndex + 4 + 4)
   );
-
+  console.log("startindex", startIndex);
+  console.log("cardlist.length", cardList.length);
   function getBlankCardList() {
     let blankCardList = [];
     cardList.forEach((cardObj) => {
@@ -36,7 +37,6 @@ function CollectBook(props) {
       let newEarnedCardsList = [];
       newEarnedCardsList = oldEarnedCardsList.map((item) => {
         const item2 = uniquePCs.find((i2) => i2.tileNumber === item.tileNumber);
-        console.log("item2", item2);
         return item2 ? { ...item, ...item2 } : item;
       });
       setEarnedCardsList(newEarnedCardsList);
@@ -46,7 +46,6 @@ function CollectBook(props) {
 
   useEffect(() => {
     function flipBook() {
-      // console.log("in flipbook", earnedCardsList);
       setLeftPageCardList(earnedCardsList.slice(startIndex, startIndex + 4));
       setRightPageCardList(
         earnedCardsList.slice(startIndex + 4, startIndex + 4 + 4)
@@ -63,7 +62,7 @@ function CollectBook(props) {
         return "visible";
       }
     } else {
-      if (index + 8 > cardList.length) {
+      if (index + 8 >= cardList.length) {
         return "hidden";
       } else {
         return "visible";
