@@ -1,10 +1,5 @@
-## To Do
-    [] map somewhere, divs have the same key
-    [] add extra button bar component
-        - buttons dependent on tab
-            - discard duplicates in PCBar
-            - remove all deco
-            - sort shop items
-    [] allow to stack multiple decos
-    [] refactor !!
-                
+## Memento Memory
+A memory card game using photocards of K-pop idols! 
+
+Match the photocards to collect the photocard, adding it to your collect-book, and earn stars. <br>
+Use stars to purchase decorations for your collected photocards!
